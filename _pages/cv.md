@@ -17,7 +17,7 @@ Education
 
 Work experience 
 ======
-* July 2013 — October 2022: Self-employed
+* July 2013 — May 2025: Self-employed
   * Preventive nutrition specialist and health coach
 
   * Achievements
