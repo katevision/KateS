@@ -43,20 +43,20 @@ Work experience
 
   * Working activities and skills
 
-    *	systematizing academical knowledge and scientific researches:  
+    *	systematized academical knowledge and scientific researches:  
         *	nutrition, 
         *	types of diets, 
         *	dietary supplements (understanding the forms of active substances, results, quality), 
         *	food (compositions, impact on the body, compatibility), 
         *	physical activity, sleep
-    *	creating the plan for each client in several areas that includes: 
+    *	created the plan for each client in several areas that includes: 
         *	check-ups, 
         *	visits to a list of doctors, 
         *	nutrition, 
         *	sports 
         and supporting step-by-step implementation of the plan 
     *	created the customer first contact form 
-    *	building of my personal website:
+    *	build of my personal website:
         *	preparing requirements for the website
         *	searching for a site template and hosting, 
         *	site deployment 
@@ -65,7 +65,7 @@ Work experience
         *	preparing requirements for the PHP developer
         *	grooming the task for the PHP developer
         *	testing prepared enhancements
-    *	preparing a landing page devoted to the course
+    *	prepared a landing page devoted to the course
 
   * Experience in using: 
     *	MS Office (MS Word, Power Point, Excel), 
