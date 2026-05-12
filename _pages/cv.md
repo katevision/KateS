@@ -97,6 +97,49 @@ Work experience
 		* Personal sales and responsibilities of the account manager
 * Experience in using: Terrasoft CRM, BPM Online (at this moment platform’s name is Creatio), MS Office (MS Word, Power Point, Excel, Outlook), BPMN notation, Skype, TeamViewer, Ammyy Admin
 
+* March 2008 - March 2012
+	* LLC “Terrasoft”(creatio.com) (Kyiv, Ukraine)
+	* Account Manager in the Direct Sales Department.
+
+	* Achievements
+		* worked at a high pace with an adequate level of performance
+		* fulfillment and over fulfillment of KPI by 4 times
+
+	* Working activities
+		* work with key clients of the company: 
+			* holding meetings in person / remotely
+			* customizing the CRM demo according to the specifics of the customer’s business (customization cards, screens, automated business processes, filling-in data)
+			* complex CRM solution presentation
+		* negotiations with market leaders in areas: 
+			* real estate
+			* construction
+			* real estate agencies
+			* residential / commercial real estate
+     		* telecoms
+			* contact centers
+			* logistics
+			* exhibition centers
+			* online stores
+			* medical centers
+			* government organizations
+		* closing deals and support of document workflow:
+			* negotiating with B2B customers
+			* proofreading and approval of documents
+			* control over the implementation of financial agreements by the customer
+			* interaction with customers and the project department during of the software product implementation project
+		* coordination work of colleagues on work with cold calls:
+			* training
+			* consulting
+		* participation in the implementation of consulting projects
+		* interactions with partners of the company that were engaged in the CRM implementation projects
+		* post-sales support and customer service
+		* phone calls through the cold customer’s base: 
+			* appointment of meetings
+			* observance of strict KPIs in terms of the number of calls per day and the number of scheduled meetings
+		* work in a large company (>350 people)
+
+
+
   
 Skills
 ======
