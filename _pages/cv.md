@@ -84,18 +84,18 @@ Work experience
 	* LLC “Terrasoft” (creatio.com) (Kyiv, Ukraine)
   * Lead Account Manager in the Direct Sales Department  
 
-  Achievements 
-•	Completed marketing analysis of the industry segment of the real estate companies market: 
-o	prepared the full list of potential customers in the industry
-o	provided reasonable marketing segmentation
-o	created a business plan for promotion in each of the segments
-•	Lead the work of 3 sales managers for more than 6 months 
-•	All the sales managers fulfilled their sales KPI’s during all the period
-Working activities
-•	Hiring managers for the call center
-•	Training of other sales managers
-•	Personal sales and responsibilities of the account manager
-Experience in using: Terrasoft CRM, BPM Online (at this moment platform’s name is Creatio), MS Office (MS Word, Power Point, Excel, Outlook), BPMN notation, Skype, TeamViewer, Ammyy Admin
+	* Achievements 
+		* Completed marketing analysis of the industry segment of the real estate companies market: 
+			* prepared the full list of potential customers in the industry
+			* provided reasonable marketing segmentation
+			* created a business plan for promotion in each of the segments
+		* Lead the work of 3 sales managers for more than 6 months 
+		* All the sales managers fulfilled their sales KPI’s during all the period
+	* Working activities
+		* Hiring managers for the call center
+		* Training of other sales managers
+		* Personal sales and responsibilities of the account manager
+* Experience in using: Terrasoft CRM, BPM Online (at this moment platform’s name is Creatio), MS Office (MS Word, Power Point, Excel, Outlook), BPMN notation, Skype, TeamViewer, Ammyy Admin
 
   
 Skills
