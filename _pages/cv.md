@@ -23,8 +23,7 @@ Work experience
   * Achievements
 
     *	Created practical-based educational course “Sleep and Health” from scratch. Course includes 14 topics with recorded video lessons and practical tasks. The course is based on data from medical conferences of somnologists, information from dozens of studies on PubMed, personal experience, observations of clients. 
-    *	More than 60 people have successfully completed the course “Sleep and Health” in first 4 months. 
-    *	12 grateful positive feedback were left to the course.
+    *	More than 60 people have successfully completed the course “Sleep and Health” in first 4 months (12 grateful positive feedback were left to the course).
     *	Created my own author's method of diseases and organ interconnections systems deep analysis.
     *	Created systematic and individual approach to the analysis of information about the client and his body, implementation of “small steps” technique
     *	Collected in a single concept the key points of the formation of “chronic fatigue syndrome”
