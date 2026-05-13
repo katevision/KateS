@@ -88,7 +88,7 @@ Work experience
 			* prepared the full list of potential customers in the industry
 			* provided reasonable marketing segmentation
 			* created a business plan for promotion in each of the segments
-		* Lead the work of 3 sales managers for more than 6 months 
+		* Lead the work of 3 sales managers 
 		* All the sales managers fulfilled their sales KPI’s during all the period
 	* Working activities
 		* Hiring managers for the call center
