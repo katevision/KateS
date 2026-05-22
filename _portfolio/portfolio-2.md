@@ -5,6 +5,12 @@ collection: portfolio
 layout: single
 ---
 
+<style>
+.page__content p {
+  text-align: justify;
+}
+</style>
+
 **Tools Used:** Excel, MySQL, Tableau
 
 [Datasets Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) - link
