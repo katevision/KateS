@@ -231,6 +231,7 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
+    markdown: kramdown
   talks:
     output: true
     permalink: /:collection/:path/
