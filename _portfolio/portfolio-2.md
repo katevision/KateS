@@ -35,10 +35,10 @@ Since our primary goal is to understand profitability, revenue, and operational 
 After validation, I confirmed that TotalAmount consists of:
 
 
-Unit Price × Quantity
-Minus Discount
-Plus Shipping Costs
-Plus Taxes
+*Unit Price × Quantity
+*Minus Discount
+*Plus Shipping Costs
+*Plus Taxes
 
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
