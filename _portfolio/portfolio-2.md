@@ -29,4 +29,16 @@ To extract meaningful insights from the dataset, I used SQL and Tableau for data
 
 ## Questions I Wanted To Answer From the Dataset:
 
-1. Which movies and shows on Netflix ranked in the top 10 and bottom 10 based on their IMDB scores?
+1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities
+  
+Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset. During the exploration process, I discovered a column called TotalAmount that lacked a clear description, so we verified what components were included in its calculation.
+After validation, I confirmed that TotalAmount consists of:
+
+
+Unit Price × Quantity
+Minus Discount
+Plus Shipping Costs
+Plus Taxes
+
+Therefore, revenue can be defined as:
+Revenue = (Unit Price × Quantity) − Discount
