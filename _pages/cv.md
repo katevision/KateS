@@ -7,6 +7,12 @@ redirect_from:
   - /resume
 ---
 
+<style>
+.page__content p {
+  text-align: justify;
+}
+</style>
+
 {% include base_path %}
 
 Education
