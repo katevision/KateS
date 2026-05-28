@@ -46,7 +46,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 LIMIT 10
 ```
 
-<img src='/images/total amount check.png'>
+<img src='/images/total_amount_check.png'>
 
  During the exploration process, I discovered a column called TotalAmount that lacked a clear description, so we verified what components were included in its calculation.
 After validation, I confirmed that TotalAmount consists of:
