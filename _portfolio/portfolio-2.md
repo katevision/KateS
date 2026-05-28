@@ -33,7 +33,7 @@ To extract meaningful insights from the dataset, I used SQL and Tableau for data
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
-```python
+```sql
 SELECT 
   UnitPrice,
   Quantity,
@@ -61,7 +61,7 @@ Revenue = (Unit Price × Quantity) − Discount
 
 ### 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
-```SQL
+```sql
 SELECT 
   EXTRACT(YEAR FROM OrderDate) AS year,
   Category,
