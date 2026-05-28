@@ -29,11 +29,11 @@ To extract meaningful insights from the dataset, I used SQL and Tableau for data
 
 ## Questions I Wanted To Answer From the Dataset:
 
-#### 1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities.
+### 1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities.
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
-```SQL
+```python
 SELECT 
   UnitPrice,
   Quantity,
@@ -59,7 +59,7 @@ After validation, I confirmed that TotalAmount consists of:
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
 
-#### 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
+### 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
 ```SQL
 SELECT 
