@@ -34,11 +34,10 @@ To extract meaningful insights from the dataset, I used SQL and Tableau for data
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset. During the exploration process, I discovered a column called TotalAmount that lacked a clear description, so we verified what components were included in its calculation.
 After validation, I confirmed that TotalAmount consists of:
 
-
-*Unit Price × Quantity
-*Minus Discount
-*Plus Shipping Costs
-*Plus Taxes
+* Unit Price × Quantity
+* Minus Discount
+* Plus Shipping Costs
+* Plus Taxes
 
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
