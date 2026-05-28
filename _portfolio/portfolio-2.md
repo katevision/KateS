@@ -53,7 +53,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY year, Category
 ORDER BY Category, year ASC
 ```
-We look at revenue trends over the year. We can also focus on specific periods and compare the same periods across different years.
+We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
 <img src='/images/revenue category year.png'>
 
