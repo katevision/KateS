@@ -44,6 +44,7 @@ Revenue = (Unit Price × Quantity) − Discount
 
 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
+```SQL
 SELECT 
   EXTRACT(YEAR FROM OrderDate) AS year,
   Category,
@@ -51,6 +52,8 @@ SELECT
 FROM `project-sales-dataset.sales_dataset_a.general_data` 
 GROUP BY year, Category
 ORDER BY Category, year ASC
+```
+
 
 <img src='/images/revenue category year.png'>
 
