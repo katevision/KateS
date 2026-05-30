@@ -13,7 +13,7 @@ layout: single
 
 **Tools Used:** Excel, MySQL, Tableau
 
-[Datasets Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) - link
+[Datasets Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
 
 SQL Analysis (Code) - link
 
