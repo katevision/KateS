@@ -11,7 +11,7 @@ layout: single
 }
 </style>
 
-**Tools Used:** Excel, MySQL, Tableau
+**Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
 
 [Datasets Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
 
