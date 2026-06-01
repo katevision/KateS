@@ -19,15 +19,21 @@ SQL Analysis (Code) - link
 
 Netflix Dashboard - Tableau - link
 
-## Business Problem:
+## Project Objective:
 
-Conduct an analysis of Amazon sales data to identify demand patterns, profitability drivers, and cost inefficiencies in order to develop recommendations for increasing revenue, optimizing product assortment, and improving operational efficiency.
+Comprehensive analysis of Amazon sales data to deliver strategic recommendations for business growth.
 
-## How I Plan On Solving the Problem:
+### Key Focus Areas:
 
-To extract meaningful insights from the dataset, I used SQL and Tableau for data analysis and visualization. Visual representations of the data helped identify trends, patterns, and key factors influencing sales performance and business outcomes. The most important part of the analytics process is asking the right questions of both the business and the data, as well as drawing meaningful conclusions from the insights obtained.
+**Market Insights:** Identifying demand patterns and seasonality.
+**Financial Performance:** Uncovering profitability drivers and cost inefficiencies.Business 
+**Impact:** Providing actionable Solutions to boost revenue, optimize product assortment, and streamline operations.
 
-## Questions I Wanted To Answer From the Dataset:
+## Approach:
+
+To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
+
+##  Key Questions Answered in This Project:
 
 ### 1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities.
   
