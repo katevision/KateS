@@ -70,6 +70,18 @@ After validation, I confirmed that TotalAmount consists of:
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
 
+**Timeframe Validation:** Determine the exact start/end dates, total years, and monthly duration of the dataset
+
+```sql
+SELECT
+  MIN(OrderDate) AS first_purchase_date,
+  MAX(OrderDate) AS last_purchase_date,
+  DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) AS total_days,
+  ROUND(DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) / 365.25, 2) AS accurate_years,
+  ROUND(DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) / 30.4375, 2) AS accurate_months
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+```
+
 ### 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
 ```sql
