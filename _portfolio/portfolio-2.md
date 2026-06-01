@@ -80,6 +80,6 @@ ORDER BY Category, year ASC
 ```
 We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
-<img src='/images/revenue category year.png'>
+<img src="{{ site.baseurl }}/images/revenue category year.png">
 
 
