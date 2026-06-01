@@ -23,11 +23,13 @@ Netflix Dashboard - Tableau - link
 
 Comprehensive analysis of Amazon sales data to deliver strategic recommendations for business growth.
 
-#### Key Focus Areas:
+**Key Focus Areas:**
 
 **Market Insights:** Identifying demand patterns and seasonality.
-**Financial Performance:** Uncovering profitability drivers and cost inefficiencies.Business 
-**Impact:** Providing actionable Solutions to boost revenue, optimize product assortment, and streamline operations.
+
+**Financial Performance:** Uncovering profitability drivers and cost inefficiencies.
+
+**Business Impact:** Providing actionable Solutions to boost revenue, optimize product assortment, and streamline operations.
 
 ## Approach:
 
