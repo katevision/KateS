@@ -124,4 +124,18 @@ ORDER BY year, revenue DESC
 
 <img src="{{ site.baseurl }}/images/revenue_category_year.png">
 
+### 5. смотрим ревенью по штатам
+можем посмотрет по штатам в разрезе разных годов
+но к сожалению, нам это не даст ничего так как данные одинаковые за каждый год но в целом это могло бы нам помочь понять отличия в объеме покупок за год в каждом штате
+
+```sql
+SELECT State, ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE EXTRACT(YEAR FROM OrderDate) = 2020
+GROUP BY State
+ORDER BY revenue DESC
+```
+
+<img src="{{ site.baseurl }}/images/revenue_state.png">
+
 
