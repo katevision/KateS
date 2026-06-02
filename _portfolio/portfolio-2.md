@@ -225,3 +225,25 @@ ORDER BY year
 
 <img src="{{ site.baseurl }}/images/avg_order_year.png">
 
+### 9. смотрим за каждый год какой у нас ревенью по каждому клиенту 
+
+но наверное лучше ха каздый год отдельно посмотреть
+
+```sql
+SELECT
+   CustomerID, CustomerName,
+   EXTRACT(YEAR FROM OrderDate) AS year,
+   ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue_per_year
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+GROUP BY CustomerID, CustomerName, year
+ORDER BY CustomerID, year
+```
+
+
+здесь мы выяснили, чтто кастомер айди не уникальный (а должен был бы быть)
+это плохо, тк мы не можем агрегировать данные нормально, тк имена клиентов могут быть идентичные , а вот айдишник должен бы бы отличатся и быть уникальным
+если Customer ID не уникален или ненадёжен, то классический RFM-анализ будет некорректным или сильно ограниченным.
+
+
+<img src="{{ site.baseurl }}/images/not_unique_id.png">
+
