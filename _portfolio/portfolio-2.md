@@ -138,4 +138,28 @@ ORDER BY revenue DESC
 
 <img src="{{ site.baseurl }}/images/revenue_state.png">
 
+### 6. средний чек заказа (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) по месяцам
+ в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
+
+например почему у нас нет скачка перед рождеством, днем матери, черной пятницей и так дале, значит наши клиенты несут деньги куда-то еще
+
+```sql
+SELECT
+ DATE_TRUNC(OrderDate, MONTH) AS month,
+ ROUND(AVG(order_total), 2) AS avg_order_monthly
+FROM (
+ SELECT
+   OrderID,
+   OrderDate,
+   SUM(UnitPrice * Quantity * (1 - Discount)) AS order_total
+ FROM `project-sales-dataset.sales_dataset_a.general_data`
+ GROUP BY OrderID, OrderDate
+) temp_table
+GROUP BY month
+ORDER BY month
+```
+
+<img src="{{ site.baseurl }}/images/avg_order.png">
+
+<img src="{{ site.baseurl }}/images/avg_order_by_month.png">
 
