@@ -110,5 +110,18 @@ ORDER BY revenue DESC
 ```
 <img src="{{ site.baseurl }}/images/category_sales.png">
 
+### 4. считаем ревенью по категориям и по годам
+
+```sql
+SELECT
+ EXTRACT(YEAR FROM OrderDate) AS year,
+ Category,
+ ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+GROUP BY year, Category
+ORDER BY year, revenue DESC
+```
+
+<img src="{{ site.baseurl }}/images/revenue_category_year.png">
 
 
