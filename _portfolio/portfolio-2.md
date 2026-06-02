@@ -103,7 +103,8 @@ We look at revenue trends by year. We can also focus on specific periods and com
 вывод: видимо в силу того, что это тестовые данные, здесь нет отличия по категориям практически, отличаются незначительно
 
 ```sql
-SELECT  Category, ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue FROM `project-sales-dataset.sales_dataset_a.general_data`
+SELECT  Category, ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY Category
 ORDER BY revenue DESC
 ```
