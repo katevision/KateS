@@ -19,7 +19,7 @@ layout: single
 
 SQL Analysis (Code) - link
 
-Netflix Dashboard - Tableau - link
+Amazon Sales Dashboard - Tableau - link
 
 ## Project Objective:
 
