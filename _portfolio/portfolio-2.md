@@ -159,7 +159,69 @@ GROUP BY month
 ORDER BY month
 ```
 
+
+
 <img src="{{ site.baseurl }}/images/avg_order.png">
 
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
+
+
+
+### 7. проверка на наличие заказов с двумя товарами
+
+для того, чтобы делать кросс-сейлс и апсейлс, мы могли бы проанализировать какие товары чаще всего покупают вместе, чтобы понять категории и зависимости
+
+но в данном датасете все заказы содержат только 1 товар
+
+```sql
+SELECT  OrderID,
+   COUNT(DISTINCT ProductID) AS unique_products FROM `project-sales-dataset.sales_dataset_a.general_data`
+GROUP BY OrderID
+HAVING COUNT(DISTINCT ProductID) > 1
+```
+
+<img src="{{ site.baseurl }}/images/check_2items_order.png">
+
+ вот так мы могли бы проверить встречаются ли пары товаров в заказах
+
+ здесь происходит дублирование таблицы и  составление уникальных пар (дубликаты сокращаются)
+
+```sql
+SELECT
+   a.ProductName AS product_1,
+   b.ProductName AS product_2,
+   COUNT(*) AS pair_frequency,
+   ROUND(SUM(
+       (a.UnitPrice * a.Quantity * (1 - a.Discount)) +
+       (b.UnitPrice * b.Quantity * (1 - b.Discount))
+   ), 2) AS pair_revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data` a
+JOIN `project-sales-dataset.sales_dataset_a.general_data` b
+   ON a.OrderID = b.OrderID
+   AND a.ProductID < b.ProductID
+GROUP BY product_1, product_2
+ORDER BY pair_frequency DESC
+```
+
+### 8. одновременно мы можем посмотреть средний заказ по годам, 
+сделать какие-то выводы из этого и при необходимости 
+углубиться в среднюю стоимость заказа по месяцам или каким-то еще периодам
+
+```sql
+SELECT
+   EXTRACT(YEAR FROM OrderDate) AS year,
+   ROUND(AVG(order_total), 2) AS avg_order_value
+FROM (
+   SELECT
+       OrderID,
+       OrderDate,
+       SUM(UnitPrice * Quantity * (1 - Discount)) AS order_total
+   FROM `project-sales-dataset.sales_dataset_a.general_data`
+   GROUP BY OrderID, OrderDate
+) temp_table
+GROUP BY year
+ORDER BY year
+```
+
+<img src="{{ site.baseurl }}/images/avg_order_year.png">
 
