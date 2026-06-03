@@ -53,7 +53,7 @@ SELECT
   Tax,
   ShippingCost,
   TotalAmount,
-  ROUND((UnitPrice * Quantity * (1 - Discount)+ ShippingCost + Tax), 2) AS calc_base_ship_tax
+  ROUND ((UnitPrice * Quantity * (1 - Discount)+ ShippingCost + Tax), 2) AS calc_base_ship_tax
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 LIMIT 10
 ```
@@ -74,11 +74,11 @@ Revenue = (Unit Price × Quantity) − Discount
 
 ```sql
 SELECT
-  MIN(OrderDate) AS first_purchase_date,
-  MAX(OrderDate) AS last_purchase_date,
-  DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) AS total_days,
-  ROUND(DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) / 365.25, 2) AS accurate_years,
-  ROUND(DATE_DIFF(MAX(OrderDate), MIN(OrderDate), DAY) / 30.4375, 2) AS accurate_months
+  MIN (OrderDate) AS first_purchase_date,
+  MAX (OrderDate) AS last_purchase_date,
+  DATE_DIFF (MAX (OrderDate), MIN (OrderDate), DAY) AS total_days,
+  ROUND (DATE_DIFF (MAX (OrderDate), MIN (OrderDate), DAY) / 365.25, 2) AS accurate_years,
+  ROUND (DATE_DIFF (MAX (OrderDate), MIN (OrderDate), DAY) / 30.4375, 2) AS accurate_months
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
 
@@ -88,9 +88,9 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 ```sql
 SELECT 
-  EXTRACT(YEAR FROM OrderDate) AS year,
+  EXTRACT (YEAR FROM OrderDate) AS year,
   Category,
-  ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+  ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data` 
 GROUP BY year, Category
 ORDER BY Category, year ASC
@@ -103,7 +103,7 @@ We look at revenue trends by year. We can also focus on specific periods and com
 вывод: видимо в силу того, что это тестовые данные, здесь нет отличия по категориям практически, отличаются незначительно
 
 ```sql
-SELECT  Category, ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY Category
 ORDER BY revenue DESC
@@ -114,9 +114,9 @@ ORDER BY revenue DESC
 
 ```sql
 SELECT
- EXTRACT(YEAR FROM OrderDate) AS year,
+ EXTRACT (YEAR FROM OrderDate) AS year,
  Category,
- ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+ ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY year, Category
 ORDER BY year, revenue DESC
@@ -129,9 +129,9 @@ ORDER BY year, revenue DESC
 но к сожалению, нам это не даст ничего так как данные одинаковые за каждый год но в целом это могло бы нам помочь понять отличия в объеме покупок за год в каждом штате
 
 ```sql
-SELECT State, ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
+SELECT State, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
 FROM `project-sales-dataset.sales_dataset_a.general_data`
-WHERE EXTRACT(YEAR FROM OrderDate) = 2020
+WHERE EXTRACT (YEAR FROM OrderDate) = 2020
 GROUP BY State
 ORDER BY revenue DESC
 ```
@@ -145,13 +145,13 @@ ORDER BY revenue DESC
 
 ```sql
 SELECT
- DATE_TRUNC(OrderDate, MONTH) AS month,
- ROUND(AVG(order_total), 2) AS avg_order_monthly
+ DATE_TRUNC (OrderDate, MONTH) AS month,
+ ROUND (AVG (order_total), 2) AS avg_order_monthly
 FROM (
  SELECT
    OrderID,
    OrderDate,
-   SUM(UnitPrice * Quantity * (1 - Discount)) AS order_total
+   SUM (UnitPrice * Quantity * (1 - Discount)) AS order_total
  FROM `project-sales-dataset.sales_dataset_a.general_data`
  GROUP BY OrderID, OrderDate
 ) temp_table
@@ -175,9 +175,9 @@ ORDER BY month
 
 ```sql
 SELECT  OrderID,
-   COUNT(DISTINCT ProductID) AS unique_products FROM `project-sales-dataset.sales_dataset_a.general_data`
+   COUNT (DISTINCT ProductID) AS unique_products FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY OrderID
-HAVING COUNT(DISTINCT ProductID) > 1
+HAVING COUNT (DISTINCT ProductID) > 1
 ```
 
 <img src="{{ site.baseurl }}/images/check_2items_order.png">
@@ -190,11 +190,9 @@ HAVING COUNT(DISTINCT ProductID) > 1
 SELECT
    a.ProductName AS product_1,
    b.ProductName AS product_2,
-   COUNT(*) AS pair_frequency,
-   ROUND(SUM(
-       (a.UnitPrice * a.Quantity * (1 - a.Discount)) +
-       (b.UnitPrice * b.Quantity * (1 - b.Discount))
-   ), 2) AS pair_revenue
+   COUNT (*) AS pair_frequency,
+   ROUND (SUM ((a.UnitPrice * a.Quantity * (1 - a.Discount)) +
+       (b.UnitPrice * b.Quantity * (1 - b.Discount))), 2) AS pair_revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data` a
 JOIN `project-sales-dataset.sales_dataset_a.general_data` b
    ON a.OrderID = b.OrderID
@@ -209,13 +207,13 @@ ORDER BY pair_frequency DESC
 
 ```sql
 SELECT
-   EXTRACT(YEAR FROM OrderDate) AS year,
-   ROUND(AVG(order_total), 2) AS avg_order_value
+   EXTRACT (YEAR FROM OrderDate) AS year,
+   ROUND (AVG(order_total), 2) AS avg_order_value
 FROM (
    SELECT
        OrderID,
        OrderDate,
-       SUM(UnitPrice * Quantity * (1 - Discount)) AS order_total
+       SUM (UnitPrice * Quantity * (1 - Discount)) AS order_total
    FROM `project-sales-dataset.sales_dataset_a.general_data`
    GROUP BY OrderID, OrderDate
 ) temp_table
@@ -232,8 +230,8 @@ ORDER BY year
 ```sql
 SELECT
    CustomerID, CustomerName,
-   EXTRACT(YEAR FROM OrderDate) AS year,
-   ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue_per_year
+   EXTRACT (YEAR FROM OrderDate) AS year,
+   ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue_per_year
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY CustomerID, CustomerName, year
 ORDER BY CustomerID, year
