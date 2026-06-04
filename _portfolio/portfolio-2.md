@@ -84,7 +84,19 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### 2. Sales revenue by category & year
+### 2.  продажи по категориям
+вывод: видимо в силу того, что это тестовые данные, здесь нет отличия по категориям практически, отличаются незначительно
+
+```sql
+SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+GROUP BY Category
+ORDER BY revenue DESC
+```
+<img src="{{ site.baseurl }}/images/category_sales.png">
+
+
+### 3. Sales revenue by category & year
 
 We review  Sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
@@ -100,17 +112,6 @@ ORDER BY Category, year ASC
 We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
 <img src="{{ site.baseurl }}/images/revenue category year.png">
-
-### 3. продажи по категориям
-вывод: видимо в силу того, что это тестовые данные, здесь нет отличия по категориям практически, отличаются незначительно
-
-```sql
-SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
-FROM `project-sales-dataset.sales_dataset_a.general_data`
-GROUP BY Category
-ORDER BY revenue DESC
-```
-<img src="{{ site.baseurl }}/images/category_sales.png">
 
 ### 4. считаем ревенью по категориям и по годам
 
