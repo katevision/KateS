@@ -84,8 +84,9 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### 2.  продажи по категориям
-вывод: видимо в силу того, что это тестовые данные, здесь нет отличия по категориям практически, отличаются незначительно
+### 2.  Sales by Category
+
+With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
 
 ```sql
 SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
@@ -95,6 +96,7 @@ ORDER BY revenue DESC
 ```
 <img src="{{ site.baseurl }}/images/category_sales.png">
 
+Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
 ### 3. Sales revenue by category & year
 
