@@ -21,7 +21,7 @@ SQL Analysis (Code) - link
 
 Amazon Sales Dashboard - Tableau - link
 
-## Project Objective:
+## Project Objective
 
 Comprehensive analysis of Amazon sales data to deliver strategic recommendations for business growth.
 
@@ -33,11 +33,11 @@ Comprehensive analysis of Amazon sales data to deliver strategic recommendations
 
 **Business Impact:** Providing actionable Solutions to boost revenue, optimize product assortment, and streamline operations.
 
-## Approach:
+## Approach
 
 To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
 
-##  Key Questions Answered in This Project:
+##  Key Questions Answered in This Project
 
 ### 1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities.
   
