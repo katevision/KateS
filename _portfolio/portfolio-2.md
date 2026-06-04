@@ -84,7 +84,9 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### 2. We review sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
+### 2. Sales revenue by category & year
+
+We review  Sales revenue by category to identify top-performing segments, spot trends, and optimize business decisions.
 
 ```sql
 SELECT 
