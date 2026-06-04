@@ -175,7 +175,8 @@ ORDER BY month
 
 ```sql
 SELECT  OrderID,
-   COUNT (DISTINCT ProductID) AS unique_products FROM `project-sales-dataset.sales_dataset_a.general_data`
+   COUNT (DISTINCT ProductID) AS unique_products
+FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY OrderID
 HAVING COUNT (DISTINCT ProductID) > 1
 ```
