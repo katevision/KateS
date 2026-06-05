@@ -39,7 +39,7 @@ To extract meaningful insights from the dataset, I used **SQL** and **Tableau** 
 
 ##  Key Questions Answered in This Project
 
-### 1. We would like to analyze profit and sales volume across different product categories, cities, and time periods in order to identify trends, regional performance differences, and potential growth opportunities.
+### 1. Some data validation
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
