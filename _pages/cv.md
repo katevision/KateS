@@ -7,11 +7,6 @@ redirect_from:
   - /resume
 ---
 
-/* <style>
-.page__content p {
-  text-align: justify;
-}
-</style>  */
 
 <style>
 .page__content p,
@@ -46,7 +41,7 @@ Technical skills
 * CRM: Terrasoft CRM, BPM Online / Creatio 
 * Programming & IT (academic): SQL, MySQL, Python, UML, HTML, Delphi, AutoCAD, ArchiCAD, MS Project,  C++, C#
 * AI Tools: ChatGPT, Gemini, Claude, DeepSeek, Grok, Perplexity
-* * Platforms: WordPress (admin), Tilda, OBS Studio, iMovie 
+* Platforms: WordPress (admin), Tilda, OBS Studio, iMovie 
 
 
 Professional experience
