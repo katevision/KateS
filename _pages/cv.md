@@ -66,11 +66,11 @@ Kyiv, Ukraine | Mar 2008 – Mar 2012
 **Responsibilities** • Working with enterprise clients across multiple industries. • Conducting needs analysis and tailoring CRM solutions. • Supporting implementation projects and documentation workflows. • Coordinating cold call teams and training new staff. • Managing negotiations, contracts, and post sales support.
 
 **OTHER EARLY ROLES (2001–2008)**
-• Marketing Manager — Informproject 
-• Engineer — Inzhpromstroyservis 
-• PC Operator — Inzhpromstroyservis 
-• Non food Seller — City Employment Center 
-• Camp Counselor — Cooperative “Flamingo”
+* Marketing Manager — Informproject 
+* Engineer — Inzhpromstroyservis 
+* PC Operator — Inzhpromstroyservis 
+* Non food Seller — City Employment Center 
+* Camp Counselor — Cooperative “Flamingo”
 
 
 Education
@@ -78,11 +78,11 @@ Education
 **Master’s Degree in Computer Science** - Kyiv National University of Construction and Architecture - 2008
 
 **ADDITIONAL TRAINING**
-• Preventive Nutrition (RSSU, 2020–2021) 
-• Trainer Nutritionist (2020) 
-• Master Trainer of Group Programs (2020) 
-• Neurophysiology Course (2017–2018) 
-• NLP, Oratory, Communication Mastery (2008–2015)
+* Preventive Nutrition (RSSU, 2020–2021) 
+* Trainer Nutritionist (2020) 
+* Master Trainer of Group Programs (2020) 
+* Neurophysiology Course (2017–2018) 
+* NLP, Oratory, Communication Mastery (2008–2015)
 
 **LANGUAGES**
 English, Russian, Ukrainian 
