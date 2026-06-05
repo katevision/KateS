@@ -12,7 +12,7 @@ redirect_from:
   text-align: justify;
 }
 </style>
-
+ 
 {% include base_path %}
 
 
