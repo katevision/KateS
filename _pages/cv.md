@@ -7,11 +7,11 @@ redirect_from:
   - /resume
 ---
 
-<style>
+/* <style>
 .page__content p {
   text-align: justify;
 }
-</style>
+</style>  */
  
 {% include base_path %}
 
