@@ -22,6 +22,7 @@ Analytical and detail oriented Business Analyst / Data Analyst with 10+ years of
 
 Core skills
 ======
+* Data Systematization and Pattern Recognition 
 * Data Analysis and Insight Development 
 * Business Analysis and Requirements Gathering 
 * Process Mapping (BPMN, workflow design) 
@@ -29,16 +30,15 @@ Core skills
 * Client Needs Analysis 
 * Project Coordination 
 * CRM Systems (Terrasoft/Creatio) 
-* Data Systematization and Pattern Recognition 
 * Training, Presentation, Communication
 
 Technical skills
 ======
 * Tools: Excel, Google Sheets, Word, PowerPoint, Keynote, Zoom 
-* Platforms: WordPress (admin), Tilda, OBS Studio, iMovie 
 * CRM: Terrasoft CRM, BPM Online / Creatio 
-* Programming & IT (academic): SQL, MySQL, UML, HTML, C++, C#, Delphi, AutoCAD, ArchiCAD, MS Project 
+* Programming & IT (academic): SQL, MySQL, Python, UML, HTML, Delphi, AutoCAD, ArchiCAD, MS Project,  C++, C#
 * AI Tools: ChatGPT, Gemini, Claude, DeepSeek, Grok, Perplexity
+* * Platforms: WordPress (admin), Tilda, OBS Studio, iMovie 
 
 
 Professional experience
