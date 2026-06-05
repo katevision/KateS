@@ -31,7 +31,7 @@ Comprehensive analysis of Amazon sales data to deliver strategic recommendations
 
 **Financial Performance:** Uncovering profitability drivers and cost inefficiencies.
 
-**Business Impact:** Providing actionable Solutions to boost revenue, optimize product assortment, and streamline operations.
+**Business Impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
 
 ## Approach
 
