@@ -84,7 +84,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### 2.  Sales by Category
+### 2.  Sales revenue  by Category
 
 With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
 
