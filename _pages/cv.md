@@ -12,6 +12,12 @@ redirect_from:
   text-align: justify;
 }
 </style>  */
+
+ <style>
+.page__content p {
+  text-align: justify;
+}
+</style> 
  
 {% include base_path %}
 
