@@ -12,7 +12,7 @@ redirect_from:
 .page__content p,
 .page__content li,
 .page__content div {
-  text-align: justify;
+  text-align: justify !important;
 }
 </style>
  
