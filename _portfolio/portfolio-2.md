@@ -237,6 +237,9 @@ ORDER BY CustomerID, year
 
 <img src="{{ site.baseurl }}/images/not_unique_id.png">
 
+## Suggestions for dashboards
+
+
 ## Insights & Conclusions
 
  ограничения:
