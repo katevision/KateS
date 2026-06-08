@@ -115,9 +115,8 @@ We look at revenue trends by year. We can also focus on specific periods and com
 
 <img src="{{ site.baseurl }}/images/revenue category year.png">
 
-### 4.  смотрим ревенью по штатам
-можем посмотрет по штатам в разрезе разных годов
-но к сожалению, нам это не даст ничего так как данные одинаковые за каждый год но в целом это могло бы нам помочь понять отличия в объеме покупок за год в каждом штате
+### 4. Revenue by state & year
+We could analyze the data by state across different years.
 
 ```sql
 SELECT State, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
@@ -129,7 +128,11 @@ ORDER BY revenue DESC
 
 <img src="{{ site.baseurl }}/images/revenue_state.png">
 
-### 5. средний чек заказа (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) по месяцам
+Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
+However, such an analysis could generally help identify differences in purchase volumes over time and compare annual purchasing patterns across states.
+
+### 5. Monthly Average Order Value Trends
+(не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
  в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
 
 например почему у нас нет скачка перед рождеством, днем матери, черной пятницей и так дале, значит наши клиенты несут деньги куда-то еще
