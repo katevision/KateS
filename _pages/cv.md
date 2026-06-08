@@ -70,8 +70,8 @@ Kyiv, Ukraine | Mar 2008 – Mar 2012
 
 **OTHER EARLY ROLES (2001–2008)**
 * Marketing Manager — Informproject 
-* Engineer — Inzhpromstroyservis 
-* PC Operator — Inzhpromstroyservis 
+* Engineer — InzhPromStroyServis 
+* PC Operator — InzhPromStroyServis 
 * Non food Seller — City Employment Center 
 * Camp Counselor — Cooperative “Flamingo”
 
