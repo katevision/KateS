@@ -118,6 +118,23 @@ We look at revenue trends by year. We can also focus on specific periods and com
 ### 4. Revenue by state & year
 We could analyze the data by state across different years.
 
+Можно увидеть, какие штаты генерируют наибольший объем продаж, а какие дают небольшой вклад.
+Это помогает понять, где сосредоточена основная клиентская база.
+
+
+Если смотреть по годам, можно рассчитать темпы роста.
+Это может подсказать, куда направлять инвестиции, маркетинг или расширение команды.
+
+Можно обнаружить регионы с падением выручки. (конкуренты? изменились цены? проблемы с доставкой или поддержкой локально?)
+
+
+Если компания запускала инициативы в определенных регионах (новые магазины, рекламные кампании, склады), можно проверить результат.
+
+Revenue по штатам и годам.
+Growth Rate (% роста год к году).
+Долю региона в общей выручке (% Share).
+Количество заказов.
+
 ```sql
 SELECT State, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
 FROM `project-sales-dataset.sales_dataset_a.general_data`
@@ -130,6 +147,12 @@ ORDER BY revenue DESC
 
 Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
 However, such an analysis could generally help identify differences in purchase volumes over time and compare annual purchasing patterns across states.
+
+в идеале было бы посмотреть, чтобы понять насколько есть профит (а не только выручка)
+Средний чек (AOV).
+Прибыль (Profit), а не только выручку.
+Выручку на одного клиента.
+но мы не можем
 
 ### 5. Monthly Average Order Value Trends
 (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
@@ -239,6 +262,8 @@ ORDER BY CustomerID, year
 
 
 <img src="{{ site.baseurl }}/images/not_unique_id.png">
+
+## некоторые продукты популярны только в отдельных штатах.
 
 ## Suggestions for dashboards
 
