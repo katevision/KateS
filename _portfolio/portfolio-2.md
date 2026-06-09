@@ -183,6 +183,19 @@ ORDER BY month
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
 
 
+SELECT
+  DATE_TRUNC(OrderDate, MONTH) AS month,
+  SUM(CASE WHEN OrderStatus = 'Delivered' THEN TotalAmount ELSE 0 END) -
+  SUM(CASE WHEN OrderStatus = 'Returned'  THEN TotalAmount ELSE 0 END) AS revenue,
+  COUNT(CASE WHEN OrderStatus = 'Delivered' THEN OrderID END) AS orders,
+  (
+    SUM(CASE WHEN OrderStatus = 'Delivered' THEN TotalAmount ELSE 0 END) -
+    SUM(CASE WHEN OrderStatus = 'Returned'  THEN TotalAmount ELSE 0 END)
+  ) / NULLIF(COUNT(CASE WHEN OrderStatus = 'Delivered' THEN OrderID END), 0) AS aov
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE OrderStatus IN ('Delivered', 'Returned')
+GROUP BY 1
+ORDER BY 1
 
 ### 6. проверка на наличие заказов с двумя товарами
 
