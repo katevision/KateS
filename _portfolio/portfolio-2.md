@@ -197,11 +197,11 @@ GROUP BY 1
 ORDER BY 1
 ```
 
-### 6. проверка на наличие заказов с двумя товарами
+### 6. Analysis of orders with multiple products
 
-для того, чтобы делать кросс-сейлс и апсейлс, мы могли бы проанализировать какие товары чаще всего покупают вместе, чтобы понять категории и зависимости
+For cross-selling and upselling opportunities, it would be valuable to analyze which products are commonly purchased together to better understand category correlations and customer buying behavior.
 
-но в данном датасете все заказы содержат только 1 товар
+However, in the current dataset (with test data), each order contains only a single product, which makes this type of basket analysis impossible.
 
 ```sql
 SELECT  OrderID,
