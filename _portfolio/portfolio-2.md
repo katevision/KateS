@@ -203,6 +203,8 @@ For cross-selling and upselling opportunities, it would be valuable to analyze w
 
 However, in the current dataset (with test data), each order contains only a single product, which makes this type of basket analysis impossible.
 
+Here, I check whether there are any orders containing two or more products.
+
 ```sql
 SELECT  OrderID,
    COUNT (DISTINCT ProductID) AS unique_products
@@ -254,7 +256,7 @@ ORDER BY year
 
 <img src="{{ site.baseurl }}/images/avg_order_year.png">
 
-### 8. смотрим за каждый год какой у нас ревенью по каждому клиенту 
+### 8. Annual Revenue by Customer
 
 но наверное лучше ха каздый год отдельно посмотреть
 
@@ -268,11 +270,9 @@ GROUP BY CustomerID, CustomerName, year
 ORDER BY CustomerID, year
 ```
 
+In this dataset, the Customer ID is not unique, which prevents us from reliably aggregating customer-level data. Since customer names may be duplicated, it is not possible to accurately distinguish between individual customers.
 
-здесь мы выяснили, чтто кастомер айди не уникальный (а должен был бы быть)
-это плохо, тк мы не можем агрегировать данные нормально, тк имена клиентов могут быть идентичные , а вот айдишник должен бы бы отличатся и быть уникальным
-если Customer ID не уникален или ненадёжен, то классический RFM-анализ будет некорректным или сильно ограниченным.
-
+As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
 
 <img src="{{ site.baseurl }}/images/not_unique_id.png">
 
