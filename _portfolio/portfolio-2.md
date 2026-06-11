@@ -40,6 +40,8 @@ To extract meaningful insights from the dataset, I used **SQL** and **Tableau** 
 ##  Key Questions Answered in This Project
 
 ### 1. Some data validation
+
+#### Revenue
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
@@ -83,6 +85,15 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
+
+#### Uniqueness CustomerID
+
+#### Orders with multiple products
+
+ ограничения:
+ не уникальный кастомер айди 
+ нет заказов с двумя товарами
+тестовые данные слишком однообразны и усреднены
 
 ### 2.  Sales revenue  by product category
 
