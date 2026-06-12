@@ -289,7 +289,9 @@ As a result, a traditional RFM analysis would not produce reliable or accurate i
 
 <img src="{{ site.baseurl }}/images/not_unique_id.png">
 
-## некоторые продукты популярны только в отдельных штатах.
+## некоторые продукты популярны только в отдельных штатах
+
+
 
 ## Suggestions for dashboards
 
