@@ -86,7 +86,9 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### Uniqueness CustomerID
+### Uniqueness of CustomerID
+
+
 
 ### Orders with multiple products
 
