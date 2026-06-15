@@ -41,7 +41,7 @@ To extract meaningful insights from the dataset, I used **SQL** and **Tableau** 
 
 ### 1. Some data validation
 
-### Revenue
+### A. Revenue
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
@@ -72,7 +72,8 @@ After validation, I confirmed that TotalAmount consists of:
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
 
-**Timeframe Validation:** Determine the exact start/end dates, total years, and monthly duration of the dataset
+### B. Timeframe Validation:
+Determine the exact start/end dates, total years, and monthly duration of the dataset
 
 ```sql
 SELECT
@@ -86,11 +87,11 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### Uniqueness of CustomerID
+### C. Uniqueness of CustomerID
 
 
 
-### Orders with multiple products
+### D. Orders with multiple products
 
  ограничения:
  не уникальный кастомер айди 
