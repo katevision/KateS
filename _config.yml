@@ -23,7 +23,7 @@ repository               : "katevision/KateS"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "foto-logo.jpg"
+  avatar           : "foto-logo2.jpg"
   name             : "Analytical and detail oriented Business Analyst"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
