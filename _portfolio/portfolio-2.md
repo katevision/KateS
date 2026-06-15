@@ -72,6 +72,8 @@ After validation, I confirmed that TotalAmount consists of:
 Therefore, revenue can be defined as:
 Revenue = (Unit Price × Quantity) − Discount
 
+**Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
+
 ### B. Timeframe Validation:
 Determine the exact start/end dates, total years, and monthly duration of the dataset
 
