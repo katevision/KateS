@@ -41,7 +41,7 @@ To extract meaningful insights from the dataset, I used **SQL** and **Tableau** 
 
 ### 1. Some data validation
 
-### A. Revenue
+### 1.A. Revenue
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
@@ -74,8 +74,9 @@ Revenue = (Unit Price × Quantity) − Discount
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
-### B. Timeframe Validation:
-Determine the exact start/end dates, total years, and monthly duration of the dataset
+### 1.B. Timeframe Validation:
+Determine the exact start/end dates, total years, and monthly duration of the dataset.
+This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
 ```sql
 SELECT
@@ -89,11 +90,23 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### C. Uniqueness of CustomerID
+### 1.C. Uniqueness of CustomerID
+
+While exploring the dataset, I identified a potential issue with the CustomerID column: it appeared not to be unique, despite being intended as a unique identifier. I subsequently performed an analysis to test this hypothesis.
 
 
+```sql
+SELECT
+    COUNT(*) AS total_rows,
+    COUNT(DISTINCT CustomerID) AS unique_customer_ids
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+```
 
-### D. Orders with multiple products
+<img src="{{ site.baseurl }}/images/unicness_customerid.png"> 
+
+The analysis confirms that this field is not unique. Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
+
+### 1.D. Orders with multiple products
 
  ограничения:
  не уникальный кастомер айди 
