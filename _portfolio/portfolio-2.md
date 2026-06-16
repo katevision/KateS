@@ -21,23 +21,23 @@ SQL Analysis (Code) - link
 
 Amazon Sales Dashboard - Tableau - link
 
-## Project Objective
+## Project objective
 
 Comprehensive analysis of Amazon sales data to deliver strategic recommendations for business growth.
 
 **Key Focus Areas:**
 
-**Market Insights:** Identifying demand patterns and seasonality.
+**Market insights:** Identifying demand patterns and seasonality.
 
-**Financial Performance:** Uncovering profitability drivers and cost inefficiencies.
+**Financial performance:** Uncovering profitability drivers and cost inefficiencies.
 
-**Business Impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
+**Business impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
 
 ## Approach
 
 To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
 
-##  Key Questions Answered in This Project
+##  Key questions answered in this project
 
 ### 1. Some data validation
 
@@ -74,7 +74,7 @@ Revenue = (Unit Price × Quantity) − Discount
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
-### 1.B. Timeframe Validation:
+### 1.B. Timeframe validation:
 Determine the exact start/end dates, total years, and monthly duration of the dataset.
 This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
@@ -183,7 +183,7 @@ However, such an analysis could generally help identify differences in purchase 
 Выручку на одного клиента.
 но мы не можем
 
-### 5. Monthly Average Order Value Trends
+### 5. Monthly average order value trends
 (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
  в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
 
@@ -285,7 +285,7 @@ ORDER BY year
 
 <img src="{{ site.baseurl }}/images/avg_order_year.png">
 
-### 8. Annual Revenue by Customer
+### 8. Annual revenue by customer
 
 но наверное лучше ха каздый год отдельно посмотреть
 
