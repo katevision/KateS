@@ -108,6 +108,24 @@ The analysis confirms that this field is not unique. Consequently, certain analy
 
 ### 1.D. Orders with multiple products
 
+Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
+
+```sql
+WITH order_items AS (
+    SELECT
+        OrderID,
+        COUNT (DISTINCT ProductID) AS product_count
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+    GROUP BY OrderID)
+
+SELECT
+    COUNT (*) AS orders_with_2plus_products
+FROM order_items
+WHERE product_count >= 2
+```
+
+<img src="{{ site.baseurl }}/images/2plusproducts.png">
+
  ограничения:
  не уникальный кастомер айди 
  нет заказов с двумя товарами
