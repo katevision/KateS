@@ -126,10 +126,8 @@ WHERE product_count >= 2
 
 <img src="{{ site.baseurl }}/images/2plusproducts.png">
 
- ограничения:
- не уникальный кастомер айди 
- нет заказов с двумя товарами
-тестовые данные слишком однообразны и усреднены
+The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
+
 
 ### 2.  Sales revenue  by product category
 
