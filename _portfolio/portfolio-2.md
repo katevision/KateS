@@ -74,7 +74,7 @@ Revenue = (Unit Price × Quantity) − Discount
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
-### 1.B. Timeframe validation:
+### 1.B. Timeframe validation
 Determine the exact start/end dates, total years, and monthly duration of the dataset.
 This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
