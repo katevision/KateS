@@ -41,7 +41,7 @@ To extract meaningful insights from the dataset, I used **SQL** and **Tableau** 
 
 ### 1. Some data validation
 
-### 1.A. Revenue
+#### 1.A. Revenue
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
@@ -74,7 +74,7 @@ Revenue = (Unit Price × Quantity) − Discount
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
-### 1.B. Timeframe validation
+#### 1.B. Timeframe validation
 Determine the exact start/end dates, total years, and monthly duration of the dataset.
 This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
@@ -90,7 +90,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
-### 1.C. Uniqueness of CustomerID
+#### 1.C. Uniqueness of CustomerID
 
 While exploring the dataset, I identified a potential issue with the CustomerID column: it appeared not to be unique, despite being intended as a unique identifier. I subsequently performed an analysis to test this hypothesis.
 
@@ -106,7 +106,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 The analysis confirms that this field is not unique. Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
 
-### 1.D. Orders with multiple products
+#### 1.D. Orders with multiple products
 
 Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
 
