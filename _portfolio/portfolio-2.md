@@ -131,7 +131,7 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ### 2.  Revenue Analysis
 
-<!--#### 2.A. Sales revenue  by product category
+#### 2.A. Sales revenue  by product category
 
 With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
 
@@ -145,10 +145,10 @@ ORDER BY revenue DESC
 
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
--->
-#### 2.A. Sales revenue by category & year
 
-Next, we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
+#### 2.B. Sales revenue by category & year
+
+We can make  we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
 
 ```sql
 SELECT 
@@ -163,7 +163,7 @@ We look at revenue trends by year. We can also focus on specific periods and com
 
 <img src="{{ site.baseurl }}/images/revenue category year.png">
 
-#### 2.B. Revenue by state & year
+#### 2.C. Revenue by state & year
 We could analyze the data by state across different years.
 
 Можно увидеть, какие штаты генерируют наибольший объем продаж, а какие дают небольшой вклад.
@@ -202,7 +202,7 @@ However, such an analysis could generally help identify differences in purchase 
 Выручку на одного клиента.
 но мы не можем
 
-#### 2.C. Monthly average order value trends
+#### 2.D. Monthly average order value trends
 (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
  в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
 
@@ -244,6 +244,107 @@ WHERE OrderStatus IN ('Delivered', 'Returned')
 GROUP BY 1
 ORDER BY 1
 ```
+
+To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
+
+
+```sql
+WITH yearly_metrics AS (
+    SELECT
+        EXTRACT(YEAR FROM OrderDate) AS year,
+        Category,
+
+        -- Revenue
+        ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue,
+
+        -- Orders
+        COUNT(DISTINCT OrderID) AS orders_count,
+
+        -- Average Order Value
+        ROUND(
+            SUM(UnitPrice * Quantity * (1 - Discount))
+            / COUNT(DISTINCT OrderID),
+            2
+        ) AS avg_order_value
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+    GROUP BY 1, 2
+)
+
+SELECT
+    year,
+    Category,
+
+    revenue,
+
+    ROUND(
+        100 * (
+            revenue
+            - LAG(revenue) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            )
+        )
+        / NULLIF(
+            LAG(revenue) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            ),
+            0
+        ),
+        2
+    ) AS revenue_growth_pct,
+
+    orders_count,
+
+    ROUND(
+        100 * (
+            orders_count
+            - LAG(orders_count) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            )
+        )
+        / NULLIF(
+            LAG(orders_count) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            ),
+            0
+        ),
+        2
+    ) AS orders_growth_pct,
+
+    avg_order_value,
+
+    ROUND(
+        100 * (
+            avg_order_value
+            - LAG(avg_order_value) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            )
+        )
+        / NULLIF(
+            LAG(avg_order_value) OVER (
+                PARTITION BY Category
+                ORDER BY year
+            ),
+            0
+        ),
+        2
+    ) AS aov_growth_pct
+
+FROM yearly_metrics
+ORDER BY Category, year
+```
+
+<img src="{{ site.baseurl }}/images/all metrics by year.png">
+
+To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
+
+<img src="{{ site.baseurl }}/images/all_metrics_by_month.png">
+
 
 ### 3. Analysis of orders with multiple products
 
