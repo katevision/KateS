@@ -15,7 +15,7 @@ layout: single
 
 **Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
 
-[Datasets Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
+[Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
 
 SQL Analysis (Code) - link
 
