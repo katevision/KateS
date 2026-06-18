@@ -131,7 +131,7 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ### 2.  Revenue Analysis
 
-#### 2.A. Sales revenue  by product category
+<!--#### 2.A. Sales revenue  by product category
 
 With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
 
@@ -145,7 +145,8 @@ ORDER BY revenue DESC
 
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
-#### 2.B. Sales revenue by category & year
+-->
+#### 2.A. Sales revenue by category & year
 
 Next, we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
 
@@ -162,7 +163,7 @@ We look at revenue trends by year. We can also focus on specific periods and com
 
 <img src="{{ site.baseurl }}/images/revenue category year.png">
 
-#### 2.C. Revenue by state & year
+#### 2.B. Revenue by state & year
 We could analyze the data by state across different years.
 
 Можно увидеть, какие штаты генерируют наибольший объем продаж, а какие дают небольшой вклад.
@@ -201,7 +202,7 @@ However, such an analysis could generally help identify differences in purchase 
 Выручку на одного клиента.
 но мы не можем
 
-#### 2.D. Monthly average order value trends
+#### 2.C. Monthly average order value trends
 (не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
  в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
 
