@@ -230,6 +230,8 @@ ORDER BY month
 
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
 
+
+
 ```sql
 SELECT
   DATE_TRUNC(OrderDate, MONTH) AS month,
@@ -246,6 +248,10 @@ ORDER BY 1
 ```
 
 To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
+
+
+<details>
+  <summary>View SQL</summary>
 
 
 ```sql
@@ -338,6 +344,7 @@ SELECT
 FROM yearly_metrics
 ORDER BY Category, year
 ```
+</details>
 
 <img src="{{ site.baseurl }}/images/all metrics by year.png">
 
