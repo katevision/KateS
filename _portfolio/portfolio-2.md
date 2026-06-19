@@ -251,7 +251,7 @@ To provide a more detailed view of category performance, I analyzed revenue, ord
 
 
 <details markdown="1">
-  <summary>View SQL</summary>
+  <summary> <strong>View SQL</strong> </summary>
 
 ```sql
 WITH yearly_metrics AS (
