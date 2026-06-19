@@ -250,9 +250,8 @@ ORDER BY 1
 To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
 
 
-<details>
+<details markdown="1">
   <summary>View SQL</summary>
-
 
 ```sql
 WITH yearly_metrics AS (
