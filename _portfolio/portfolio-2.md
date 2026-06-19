@@ -266,15 +266,11 @@ WITH yearly_metrics AS (
         COUNT(DISTINCT OrderID) AS orders_count,
 
         -- Average Order Value
-        ROUND(
-            SUM(UnitPrice * Quantity * (1 - Discount))
-            / COUNT(DISTINCT OrderID),
-            2
-        ) AS avg_order_value
+        ROUND (SUM (UnitPrice * Quantity * (1 - Discount))
+            / COUNT(DISTINCT OrderID), 2 ) AS avg_order_value
 
     FROM `project-sales-dataset.sales_dataset_a.general_data`
-    GROUP BY 1, 2
-)
+    GROUP BY 1, 2)
 
 SELECT
     year,
@@ -282,63 +278,38 @@ SELECT
 
     revenue,
 
-    ROUND(
-        100 * (
+    ROUND( 100 * (
             revenue
             - LAG(revenue) OVER (
                 PARTITION BY Category
-                ORDER BY year
-            )
+                ORDER BY year)
         )
-        / NULLIF(
-            LAG(revenue) OVER (
-                PARTITION BY Category
-                ORDER BY year
-            ),
-            0
-        ),
-        2
-    ) AS revenue_growth_pct,
+        / NULLIF (LAG (revenue) OVER (PARTITION BY Category
+                ORDER BY year ), 0 ), 2) AS revenue_growth_pct,
 
     orders_count,
 
-    ROUND(
-        100 * (
+    ROUND( 100 * (
             orders_count
             - LAG(orders_count) OVER (
                 PARTITION BY Category
-                ORDER BY year
-            )
-        )
+                ORDER BY year))
         / NULLIF(
             LAG(orders_count) OVER (
                 PARTITION BY Category
-                ORDER BY year
-            ),
-            0
-        ),
-        2
-    ) AS orders_growth_pct,
+                ORDER BY year), 0), 2) AS orders_growth_pct,
 
     avg_order_value,
 
     ROUND(
-        100 * (
-            avg_order_value
+        100 * (avg_order_value
             - LAG(avg_order_value) OVER (
                 PARTITION BY Category
-                ORDER BY year
-            )
-        )
+                ORDER BY year) )
         / NULLIF(
             LAG(avg_order_value) OVER (
                 PARTITION BY Category
-                ORDER BY year
-            ),
-            0
-        ),
-        2
-    ) AS aov_growth_pct
+                ORDER BY year), 0), 2) AS aov_growth_pct
 
 FROM yearly_metrics
 ORDER BY Category, year
@@ -355,6 +326,14 @@ To gain a more detailed understanding of performance trends, I extended the anal
 <a href="/KateS/images/all_metrics_by_month.png" class="image-popup"> 
   <img src="/KateS/images/all_metrics_by_month.png" alt="monthly">
 </a>
+
+### 3. Regional Analysis
+
+#### 3.A. Revenue by state 
+
+Revenue по штатам и годам. Growth Rate (% роста год к году). Долю региона в общей выручке (% Share). Количество заказов.
+
+-------------------------------------------------------------------------------------------
 
 ### 3. Analysis of orders with multiple products
 
