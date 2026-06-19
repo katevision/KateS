@@ -345,6 +345,7 @@ ORDER BY Category, year
 ```
 </details>
 
+
 <img src="{{ site.baseurl }}/images/all metrics by year.png">
 
 To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
