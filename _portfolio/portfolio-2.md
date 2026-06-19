@@ -454,6 +454,9 @@ As a result, a traditional RFM analysis would not produce reliable or accurate i
 - какие катогории товаров приносят больше выручки (и является ли это трендом сквозь годы)
 - какие товары с какими чаще всего берут - кросс сейлс
 - если у покупателей схожий набор товаров (не в одном заказе, а на протяжении времени), то может им стоит предложить то, что брули другие, а они еще не брали (исключая корнер-кейсы типа товаров для детей и товаров для животных)
+- посмотреть продажи по штатам, скидки по штатам, возможно в какие-то штатах/городах, стоит скидку уменьшить (например, потому что нам это не очень выгодно), а в других - увеличить
+- нет ли аномальных трендов (например, отсутствие роста продаж )
+
 
 <script>
 $(document).ready(function() {
@@ -466,5 +469,22 @@ $(document).ready(function() {
   });
 });
 </script>
-- посмотреть продажи по штатам, скидки по штатам, возможно в какие-то штатах/городах, стоит скидку уменьшить (например, потому что нам это не очень выгодно), а в других - увеличить
-- нет ли аномальных трендов (например, отсутствие роста продаж )
+
+<!-- Лайтбокс -->
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+  <span onclick="document.getElementById('lightbox').style.display='none'" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">✕</span>
+  <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; object-fit:contain;">
+</div>
+
+<script>
+document.querySelectorAll('.my-popup').forEach(function(el) {
+  el.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('lightbox-img').src = this.href;
+    document.getElementById('lightbox').style.display = 'flex';
+  });
+});
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if(e.target === this) this.style.display = 'none';
+});
+</script>
