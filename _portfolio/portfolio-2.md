@@ -333,6 +333,7 @@ To gain a more detailed understanding of performance trends, I extended the anal
 
 Identify top-performing states and assess their contribution to overall revenue, based on the latest available 12 months of data.
 
+```sql
 WITH state_sales AS (
   SELECT
     State,
@@ -346,9 +347,74 @@ WITH state_sales AS (
     AND OrderDate < '2025-01-01'
   GROUP BY State
 )
+```
 
 <img src="{{ site.baseurl }}/images/Revenue_state_orders_units.png">
- 
+
+ One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
+
+
+#### 3.A. Discount Analysis by state 
+
+These metrics help assess the effectiveness and cost of discounting strategies across states:
+
+Average Discount (%) — shows how aggressively discounts are being used in each market.
+Discount as % of Revenue — quantifies how much revenue is being sacrificed to drive sales, highlighting the true financial impact of promotions.
+Orders with Discount (%) — indicates the dependence on discounts to generate demand and close sales.
+
+We are trying to investigate: Are discounts driving sustainable sales growth, or are certain states relying too heavily on promotions at the expense of revenue and profitability?
+A more detailed analysis may require the data to be broken down by quarter or by month.
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+
+```sql
+WITH state_metrics AS (
+  SELECT
+    State,
+
+    AVG(Discount) * 100 AS Average_Discount_Pct,
+
+    SUM(UnitPrice * Quantity * Discount) AS Discount_Amount,
+
+    SUM(UnitPrice * Quantity * (1 - Discount)) AS Revenue,
+
+    COUNT(DISTINCT CASE
+      WHEN Discount > 0 THEN OrderID
+    END) AS Discounted_Orders,
+
+    COUNT(DISTINCT OrderID) AS Total_Orders
+
+  FROM `project-sales-dataset.sales_dataset_a.general_data`
+  WHERE OrderDate >= '2024-01-01'
+    AND OrderDate < '2025-01-01'
+  GROUP BY State
+)
+
+SELECT
+  State,
+
+  ROUND(Average_Discount_Pct, 2) AS Average_Discount_Pct,
+
+  ROUND(
+    100 * Discount_Amount /
+    NULLIF(Revenue, 0),
+    2
+  ) AS Discount_as_Pct_of_Revenue,
+
+  ROUND(
+    100 * Discounted_Orders /
+    NULLIF(Total_Orders, 0),
+    2
+  ) AS Pct_Orders_With_Discount
+
+FROM state_metrics
+ORDER BY Revenue DESC
+```
+</details>
+
+
+<img src="{{ site.baseurl }}/images/discounts_state.png">
 
 -------------------------------------------------------------------------------------------
 
