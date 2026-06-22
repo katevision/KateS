@@ -469,3 +469,8 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
   if(e.target === this) this.style.display = 'none';
 });
 </script>
+
+<p id="test-text">JS не работает</p>
+<script>
+document.getElementById('test-text').innerText = 'JS работает';
+</script>
