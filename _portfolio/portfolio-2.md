@@ -104,7 +104,9 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/unicness_customerid.png"> 
 
-The analysis confirms that this field is not unique. Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
+The analysis confirms that this field is not unique.
+As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
+Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
 
 #### 1.D. Orders with multiple products
 
