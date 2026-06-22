@@ -479,25 +479,7 @@ ORDER BY year
 
 <img src="{{ site.baseurl }}/images/avg_order_year.png">
 
-### 5. Annual revenue by customer
 
-но наверное лучше ха каздый год отдельно посмотреть
-
-```sql
-SELECT
-   CustomerID, CustomerName,
-   EXTRACT (YEAR FROM OrderDate) AS year,
-   ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue_per_year
-FROM `project-sales-dataset.sales_dataset_a.general_data`
-GROUP BY CustomerID, CustomerName, year
-ORDER BY CustomerID, year
-```
-
-In this dataset, the Customer ID is not unique, which prevents us from reliably aggregating customer-level data. Since customer names may be duplicated, it is not possible to accurately distinguish between individual customers.
-
-As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
-
-<img src="{{ site.baseurl }}/images/not_unique_id.png">
 
 ## некоторые продукты популярны только в отдельных штатах
 
