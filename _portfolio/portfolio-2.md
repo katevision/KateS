@@ -331,7 +331,24 @@ To gain a more detailed understanding of performance trends, I extended the anal
 
 #### 3.A. Revenue by state 
 
-Revenue по штатам и годам. Growth Rate (% роста год к году). Долю региона в общей выручке (% Share). Количество заказов.
+Identify top-performing states and assess their contribution to overall revenue, based on the latest available 12 months of data.
+
+WITH state_sales AS (
+  SELECT
+    State,
+    COUNT(DISTINCT OrderID) AS Orders,
+    SUM(Quantity) AS Units_Sold,
+    SUM(
+      UnitPrice * Quantity * (1 - COALESCE(Discount, 0))
+    ) AS Revenue
+  FROM `project-sales-dataset.sales_dataset_a.general_data`
+  WHERE OrderDate >= '2024-01-01'
+    AND OrderDate < '2025-01-01'
+  GROUP BY State
+)
+
+<img src="{{ site.baseurl }}/images/Revenue_state_orders_units.png">
+ 
 
 -------------------------------------------------------------------------------------------
 
