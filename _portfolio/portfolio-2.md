@@ -356,7 +356,7 @@ WITH state_sales AS (
  One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
 
 
-#### 3.A. Discount Analysis by state 
+#### 3.B. Discount Analysis by state 
 
 These metrics help assess the effectiveness and cost of discounting strategies across states:
 
@@ -417,6 +417,58 @@ ORDER BY Revenue DESC
 
 
 <img src="{{ site.baseurl }}/images/discounts_state.png">
+
+
+
+#### 3.C. Top categories by state 
+
+This analysis helps identify key category demand drivers across states, reveal regional differences in customer preferences, support localized assortment and marketing strategies, and highlight potential over-reliance on a single category within a state.
+
+For a more detailed understanding of each region, we can also perform this analysis separately for each state.
+
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH category_state AS (
+  SELECT
+    State,
+    Category,
+    SUM(UnitPrice * Quantity * (1 - COALESCE(Discount, 0))) AS Revenue,
+    SUM(Quantity) AS Units_Sold
+  FROM `project-sales-dataset.sales_dataset_a.general_data`
+  WHERE OrderDate >= '2024-01-01'
+    AND OrderDate < '2025-01-01'
+  GROUP BY State, Category
+),
+
+ranked AS (
+  SELECT
+    State,
+    Category,
+    Revenue,
+    Units_Sold,
+    RANK() OVER (
+      PARTITION BY State
+      ORDER BY Revenue DESC
+    ) AS rn
+  FROM category_state
+)
+
+SELECT
+  State,
+  Category,
+  ROUND(Revenue, 2) AS Revenue,
+  Units_Sold
+FROM ranked
+WHERE rn = 1
+ORDER BY Revenue DESC
+```
+</details>
+
+
+<img src="{{ site.baseurl }}/images/top_category_state.png">
 
 -------------------------------------------------------------------------------------------
 
