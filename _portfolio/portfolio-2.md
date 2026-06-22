@@ -437,7 +437,7 @@ As a result, a traditional RFM analysis would not produce reliable or accurate i
 - нет ли аномальных трендов (например, отсутствие роста продаж )
 
 
-<script>
+<!--<script>
 $(document).ready(function() {
   $('.image-popup').magnificPopup({
     type: 'image',
@@ -448,7 +448,9 @@ $(document).ready(function() {
   });
 });
 </script>
+ -->
 
+ 
 <!-- Лайтбокс -->
 <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
   <span onclick="document.getElementById('lightbox').style.display='none'" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">✕</span>
