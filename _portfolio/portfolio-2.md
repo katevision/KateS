@@ -70,7 +70,7 @@ After validation, I confirmed that TotalAmount consists of:
 * Plus Taxes
 
 Therefore, revenue can be defined as:
-Revenue = (Unit Price × Quantity) − Discount
+Revenue = Unit Price × Quantity × (1 − Discount)
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
