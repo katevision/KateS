@@ -471,7 +471,7 @@ ORDER BY Revenue DESC
 <img src="{{ site.baseurl }}/images/top_category_state.png">
 
 
-#### 3.C. Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year
+#### 3.D. Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year
 
 I analyzed Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year to evaluate the impact of discounting and logistics expenses on sales performance.
 
@@ -482,44 +482,13 @@ I analyzed Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by stat
 более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
 
 
+
+
+### 4. Analysis of products
+
+
+
 -------------------------------------------------------------------------------------------
-
-### 3. Analysis of orders with multiple products
-
-For cross-selling and upselling opportunities, it would be valuable to analyze which products are commonly purchased together to better understand category correlations and customer buying behavior.
-
-However, in the current dataset (with test data), each order contains only a single product, which makes this type of basket analysis impossible.
-
-Here, I check whether there are any orders containing two or more products.
-
-```sql
-SELECT  OrderID,
-   COUNT (DISTINCT ProductID) AS unique_products
-FROM `project-sales-dataset.sales_dataset_a.general_data`
-GROUP BY OrderID
-HAVING COUNT (DISTINCT ProductID) > 1
-```
-
-<img src="{{ site.baseurl }}/images/check_2items_order.png">
-
- вот так мы могли бы проверить встречаются ли пары товаров в заказах
-
- здесь происходит дублирование таблицы и  составление уникальных пар (дубликаты сокращаются)
-
-```sql
-SELECT
-   a.ProductName AS product_1,
-   b.ProductName AS product_2,
-   COUNT (*) AS pair_frequency,
-   ROUND (SUM ((a.UnitPrice * a.Quantity * (1 - a.Discount)) +
-       (b.UnitPrice * b.Quantity * (1 - b.Discount))), 2) AS pair_revenue
-FROM `project-sales-dataset.sales_dataset_a.general_data` a
-JOIN `project-sales-dataset.sales_dataset_a.general_data` b
-   ON a.OrderID = b.OrderID
-   AND a.ProductID < b.ProductID
-GROUP BY product_1, product_2
-ORDER BY pair_frequency DESC
-```
 
 ### 4. одновременно мы можем посмотреть средний заказ по годам 
 сделать какие-то выводы из этого и при необходимости 
