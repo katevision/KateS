@@ -471,8 +471,12 @@ ORDER BY Revenue DESC
 <img src="{{ site.baseurl }}/images/top_category_state.png">
 
 
-#### 3.C. Top categories by state 
+#### 3.C. Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year
 
+I analyzed Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year to evaluate the impact of discounting and logistics expenses on sales performance.
+
+
+<img src="{{ site.baseurl }}/images/state_year_revenue _discount_shipping.png">
 
 
 более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
