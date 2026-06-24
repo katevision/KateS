@@ -470,6 +470,14 @@ ORDER BY Revenue DESC
 
 <img src="{{ site.baseurl }}/images/top_category_state.png">
 
+
+#### 3.C. Top categories by state 
+
+
+
+более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
+
+
 -------------------------------------------------------------------------------------------
 
 ### 3. Analysis of orders with multiple products
