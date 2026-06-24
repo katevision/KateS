@@ -542,3 +542,7 @@ ORDER BY year
   <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; object-fit:contain;">
 </div>
 
+<p id="test-text">JS не работает</p>
+<script>
+document.getElementById('test-text').innerText = 'JS работает';
+</script>
