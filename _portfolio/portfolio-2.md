@@ -563,4 +563,9 @@ ORDER BY year
 - посмотреть продажи по штатам, скидки по штатам, возможно в какие-то штатах/городах, стоит скидку уменьшить (например, потому что нам это не очень выгодно), а в других - увеличить
 - нет ли аномальных трендов (например, отсутствие роста продаж )
 
+<!-- Лайтбокс -->
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+  <span onclick="document.getElementById('lightbox').style.display='none'" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">✕</span>
+  <img id="lightbox-img" src="" style="max-width:90%; max-height:90vh; object-fit:contain;">
+</div>
 
