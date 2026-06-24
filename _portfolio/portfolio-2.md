@@ -325,7 +325,7 @@ To gain a more detailed understanding of performance trends, I extended the anal
 
 <img src="{{ site.baseurl }}/images/all_metrics_by_month.png">
 
-<a href="/KateS/images/all_metrics_by_month.png" class="image-popup"> 
+<a href="/KateS/images/all_metrics_by_month.png" class="my-popup"> 
   <img src="/KateS/images/all_metrics_by_month.png" alt="monthly">
 </a>
 
