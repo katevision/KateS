@@ -537,7 +537,113 @@ ORDER BY
 
 ### 4. Analysis of products
 
+#### 4.A. Identify top-performing, growing, and declining products to support portfolio optimization 
 
+Evaluate product performance over time by measuring sales volume, revenue contribution, and year-over-year growth to identify top-performing products, emerging growth opportunities, and declining items that may require portfolio optimization.
+
+This analysis helps answer the following business questions.
+Which products:
+- generate the largest share of revenue?
+- have the highest sales volume?
+- are experiencing the strongest year-over-year growth?
+- are showing declining demand?
+How much does each product contribute to total company revenue?
+Which products should be prioritized for growth, and which should be reviewed or phased out of the portfolio?
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH product_sales AS (
+    SELECT
+        EXTRACT(YEAR FROM OrderDate) AS sales_year,
+        ProductID,
+        ProductName,
+        Category,
+        Brand,
+
+        SUM(
+            UnitPrice * Quantity * (1 - COALESCE(Discount, 0))
+        ) AS revenue,
+
+        COUNT(DISTINCT OrderID) AS orders,
+
+        SUM(Quantity) AS units_sold
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data` 
+
+    GROUP BY
+        sales_year,
+        ProductID,
+        ProductName,
+        Category,
+        Brand
+),
+
+product_growth AS (
+    SELECT
+        sales_year,
+        ProductID,
+        ProductName,
+        Category,
+        Brand,
+        revenue,
+        orders,
+        units_sold,
+
+        revenue
+            / SUM(revenue) OVER (PARTITION BY sales_year)
+            * 100 AS revenue_share_pct,
+
+        LAG(revenue) OVER (
+            PARTITION BY ProductID
+            ORDER BY sales_year
+        ) AS previous_revenue,
+
+        LAG(orders) OVER (
+            PARTITION BY ProductID
+            ORDER BY sales_year
+        ) AS previous_orders
+
+    FROM product_sales
+)
+
+SELECT
+    sales_year,
+    ProductID,
+    ProductName,
+    Category,
+    Brand,
+
+    ROUND(revenue, 2) AS revenue,
+
+    orders,
+
+    units_sold,
+
+    ROUND(revenue_share_pct, 2) AS revenue_share_pct,
+
+    ROUND(
+        (revenue - previous_revenue)
+        / NULLIF(previous_revenue, 0) * 100,
+        2
+    ) AS revenue_growth_yoy,
+
+    ROUND(
+        (orders - previous_orders)
+        / NULLIF(previous_orders, 0) * 100,
+        2
+    ) AS order_growth_yoy
+
+FROM product_growth
+
+ORDER BY
+    sales_year,
+    revenue DESC
+```
+</details>
+
+<img src="{{ site.baseurl }}/images/overall_analitycs_products.png">
 
 -------------------------------------------------------------------------------------------
 
