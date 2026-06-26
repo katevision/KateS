@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
   document.querySelectorAll('.my-popup').forEach(function(el) {
     el.addEventListener('click', function(e) {
       e.preventDefault();
