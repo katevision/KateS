@@ -475,6 +475,57 @@ ORDER BY Revenue DESC
 
 I analyzed Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year to evaluate the impact of discounting and logistics expenses on sales performance.
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH state_year_sales AS (
+    SELECT
+        EXTRACT(YEAR FROM OrderDate) AS year,
+        State AS state,
+
+        -- Sales before discounts
+        SUM(
+            UnitPrice * Quantity
+        ) AS gross_sales,
+
+        -- Discount amount in currency
+        SUM(
+            UnitPrice * Quantity * COALESCE(Discount, 0)
+        ) AS discount_amount,
+
+        -- Total shipping costs
+        SUM(
+            COALESCE(ShippingCost, 0)
+        ) AS shipping_cost
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+    GROUP BY
+        year,
+        state
+)
+
+SELECT
+    year,
+    state,
+
+    ROUND(gross_sales, 2) AS gross_sales,
+
+    ROUND(discount_amount, 2) AS discount_amount,
+
+    ROUND(
+        gross_sales - discount_amount,
+        2
+    ) AS revenue,
+
+    ROUND(shipping_cost, 2) AS shipping_cost
+
+FROM state_year_sales
+ORDER BY
+    state,
+    year
+```
+</details>
 
 <img src="{{ site.baseurl }}/images/state_year_revenue _discount_shipping.png">
 
