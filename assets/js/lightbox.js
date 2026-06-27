@@ -5,6 +5,7 @@ window.addEventListener('load', function() {
   document.querySelectorAll('img.my-lightbox').forEach(function(el) {
     el.addEventListener('click', function(e) {
       e.stopPropagation();
+      console.log('click fired', this.src);
       document.getElementById('lightbox-img').src = this.src;
       document.getElementById('lightbox').style.display = 'flex';
     });
