@@ -694,10 +694,7 @@ ORDER BY year
 - нет ли аномальных трендов (например, отсутствие роста продаж )
 
 <!-- Лайтбокс -->
-
-<a data-src="/KateS/images/all_metrics_by_month.png" class="my-lightbox" style="cursor:pointer;">
-  <img src="/KateS/images/all_metrics_by_month.png" alt="monthly">
-</a>
+<img src="/KateS/images/all_metrics_by_month.png" alt="monthly" class="my-lightbox" style="cursor:pointer;">
 
 <div id="lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
   <img id="lightbox-img" src="" onclick="event.stopPropagation()" style="max-width:90%; max-height:90vh; object-fit:contain;">
