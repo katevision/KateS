@@ -694,7 +694,8 @@ ORDER BY year
 - нет ли аномальных трендов (например, отсутствие роста продаж )
 
 <!-- Лайтбокс -->
-<a href="/KateS/images/all_metrics_by_month.png" class="my-lightbox">
+
+<a data-src="/KateS/images/all_metrics_by_month.png" class="my-lightbox" style="cursor:pointer;">
   <img src="/KateS/images/all_metrics_by_month.png" alt="monthly">
 </a>
 
