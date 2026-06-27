@@ -1,4 +1,7 @@
+console.log('lightbox.js loaded');
+
 window.addEventListener('load', function() {
+  console.log('window loaded');
   document.querySelectorAll('img.my-lightbox').forEach(function(el) {
     el.addEventListener('click', function(e) {
       e.stopPropagation();
