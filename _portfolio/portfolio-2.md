@@ -645,6 +645,82 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/overall_analitycs_products.png">
 
+#### 4.B. ABC-analysis
+
+Unfortunately  ABC-analysis is not relevant fot that dataset
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH product_revenue AS (
+    SELECT
+        ProductID,
+        ProductName,
+        Category,
+        Brand,
+
+        SUM(
+            UnitPrice * Quantity * (1 - COALESCE(Discount, 0))
+        ) AS revenue
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+
+    GROUP BY
+        ProductID,
+        ProductName,
+        Category,
+        Brand
+),
+
+abc_base AS (
+    SELECT
+        ProductID,
+        ProductName,
+        Category,
+        Brand,
+        revenue,
+
+        revenue
+            / SUM(revenue) OVER () * 100
+            AS revenue_share_pct,
+
+        SUM(revenue) OVER (
+            ORDER BY revenue DESC
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        )
+            / SUM(revenue) OVER () * 100
+            AS cumulative_revenue_pct
+
+    FROM product_revenue
+)
+
+SELECT
+    ProductID,
+    ProductName,
+    Category,
+    Brand,
+
+    ROUND(revenue, 2) AS revenue,
+
+    ROUND(revenue_share_pct, 2) AS revenue_share_pct,
+
+    ROUND(cumulative_revenue_pct, 2) AS cumulative_revenue_pct,
+
+    CASE
+        WHEN cumulative_revenue_pct <= 80 THEN 'A'
+        WHEN cumulative_revenue_pct <= 95 THEN 'B'
+        ELSE 'C'
+    END AS abc_segment
+
+FROM abc_base
+
+ORDER BY revenue DESC
+```
+</details>
+
+<img src="{{ site.baseurl }}/images/ABC.png">
+
 -------------------------------------------------------------------------------------------
 
 ### 4. одновременно мы можем посмотреть средний заказ по годам 
