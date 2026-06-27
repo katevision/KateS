@@ -721,6 +721,93 @@ ORDER BY revenue DESC
 
 <img src="{{ site.baseurl }}/images/ABC.png">
 
+Identify the products that contribute the most to total revenue and classify them into A, B, and C segments to support assortment optimization and inventory prioritization.
+
+#### 4.B. ABC-analysis
+
+Business Questions
+
+Which products are most dependent on discounts?
+Which products require the highest discount investment?
+Which products generate strong sales without heavy discounting?
+
+Или еще короче:
+
+This analysis identifies products that rely heavily on discounts to drive sales and highlights opportunities to optimize pricing and promotional strategies.
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH product_discount_summary AS (
+    SELECT
+        ProductID,
+        ProductName,
+        Category,
+        Brand,
+
+        -- Sales before discounts
+        SUM(UnitPrice * Quantity) AS gross_sales,
+
+        -- Discount metrics
+        AVG(COALESCE(Discount, 0)) * 100 AS average_discount_pct,
+
+        SUM(
+            UnitPrice * Quantity * COALESCE(Discount, 0)
+        ) AS discount_amount,
+
+        -- Order metrics
+        COUNT(DISTINCT CASE
+            WHEN Discount > 0 THEN OrderID
+        END) AS discounted_orders,
+
+        COUNT(DISTINCT OrderID) AS total_orders,
+
+        -- Revenue after discounts
+        SUM(
+            UnitPrice * Quantity * (1 - COALESCE(Discount, 0))
+        ) AS revenue
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+
+    GROUP BY
+        ProductID,
+        ProductName,
+        Category,
+        Brand
+)
+
+SELECT
+    ProductID,
+    ProductName,
+    Category,
+    Brand,
+
+    ROUND(gross_sales, 2) AS gross_sales,
+
+    ROUND(average_discount_pct, 2) AS average_discount_pct,
+
+    ROUND(discount_amount, 2) AS discount_amount,
+
+    ROUND(
+        100 * discounted_orders
+        / NULLIF(total_orders, 0),
+        2
+    ) AS orders_with_discount_pct,
+
+    ROUND(revenue, 2) AS revenue
+
+FROM product_discount_summary
+
+ORDER BY
+    orders_with_discount_pct DESC,
+    average_discount_pct DESC,
+    revenue DESC
+```
+</details>
+
+<img src="{{ site.baseurl }}/images/products_discounts.png">
+
 -------------------------------------------------------------------------------------------
 
 ### 4. одновременно мы можем посмотреть средний заказ по годам 
