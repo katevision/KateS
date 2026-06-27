@@ -9,4 +9,7 @@ window.addEventListener('load', function() {
   document.getElementById('lightbox').addEventListener('click', function() {
     document.getElementById('lightbox').style.display = 'none';
   });
+  document.getElementById('lightbox-img').addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
 });
