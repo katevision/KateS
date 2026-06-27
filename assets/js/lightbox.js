@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
       console.log('click fired', this.src);
       document.getElementById('lightbox-img').src = this.src;
       document.getElementById('lightbox').style.display = 'flex';
-    });
+    }, true);
   });
   document.getElementById('lightbox').addEventListener('click', function() {
     this.style.display = 'none';
