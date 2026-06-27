@@ -1,15 +1,15 @@
 window.addEventListener('load', function() {
-  document.querySelectorAll('.my-lightbox').forEach(function(el) {
+  document.querySelectorAll('img.my-lightbox').forEach(function(el) {
     el.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('lightbox-img').src = this.dataset.src;
+      e.stopPropagation();
+      document.getElementById('lightbox-img').src = this.src;
       document.getElementById('lightbox').style.display = 'flex';
     });
   });
-  document.getElementById('lightbox').onclick = function() {
+  document.getElementById('lightbox').addEventListener('click', function() {
     this.style.display = 'none';
-  };
-  document.getElementById('lightbox-img').onclick = function(e) {
+  });
+  document.getElementById('lightbox-img').addEventListener('click', function(e) {
     e.stopPropagation();
-  };
+  });
 });
