@@ -723,7 +723,7 @@ ORDER BY revenue DESC
 
 Identify the products that contribute the most to total revenue and classify them into A, B, and C segments to support assortment optimization and inventory prioritization.
 
-#### 4.B. ABC-analysis
+#### 4.С. Products & discounts
 
 Business Questions
 
