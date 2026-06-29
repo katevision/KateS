@@ -652,7 +652,7 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/overall_analitycs_products.png">
 
-<img src="/KateS/images/images/overall_analitycs_products.png" alt="overall_analitycs_products" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/overall_analitycs_products.png" alt="overall_analitycs_products" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 4.B. ABC-analysis
 
@@ -728,10 +728,10 @@ ORDER BY revenue DESC
 ```
 </details>
 
-<img src="{{ site.baseurl }}/images/ABC.png">
+<img src="{{ site.baseurl }}/images/abc.png">
 
 
-<img src="/KateS/images/state_year_revenue_discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/abc.png" alt="abc" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Identify the products that contribute the most to total revenue and classify them into A, B, and C segments to support assortment optimization and inventory prioritization.
 
