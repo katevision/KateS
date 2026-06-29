@@ -196,8 +196,6 @@ GROUP BY State
 ORDER BY revenue DESC
 ```
 
-<img src="{{ site.baseurl }}/images/revenue_state.png">
-
 <img src="/KateS/images/revenue_state.png" alt="revenue_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
@@ -235,7 +233,7 @@ ORDER BY month
 
 <img src="{{ site.baseurl }}/images/avg_order.png">
 
-<img src="/KateS/images/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
 
