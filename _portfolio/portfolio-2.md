@@ -89,8 +89,6 @@ SELECT
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
 
-<img src="{{ site.baseurl }}/images/check_years_month_date.png">
-
 <img src="/KateS/images/check_years_month_date.png" alt="check_years_month_date" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 1.C. Uniqueness of CustomerID
@@ -104,8 +102,6 @@ SELECT
     COUNT(DISTINCT CustomerID) AS unique_customer_ids
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
-
-<img src="{{ site.baseurl }}/images/unicness_customerid.png"> 
 
 <img src="/KateS/images/unicness_customerid.png" alt="unicness_customerid" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -133,7 +129,7 @@ WHERE product_count >= 2
 
 <img src="{{ site.baseurl }}/images/2plusproducts.png">
 
-<img src="/KateS/images/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
 
@@ -172,9 +168,9 @@ ORDER BY Category, year ASC
 ```
 We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
-<img src="{{ site.baseurl }}/images/revenue category year.png">
+<img src="{{ site.baseurl }}/images/revenue_category_year.png">
 
-<img src="/KateS/images/images/revenue category year.png" alt="revenue category year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 2.C. Revenue by state & year
 We could analyze the data by state across different years.
