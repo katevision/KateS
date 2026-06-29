@@ -3,15 +3,25 @@ title: "Portfolio item number 2"
 excerpt: "Short description of portfolio item number 2 <br/><img src='/images/500x300.png'>"
 collection: portfolio
 layout: single
-toc: true
-toc_sticky: false
 ---
 
 <style>
 .page__content p {
   text-align: justify;
 }
+.toc {
+  float: none;
+  width: 100%;
+  margin: 0 0 1em 0;
+}
+.page__inner-wrap {
+  float: none;
+  width: 100%;
+}
 </style>
+
+
+{% include toc %}
 
 
 **Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
