@@ -60,7 +60,8 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 LIMIT 10
 ```
 
-<img src="{{ site.baseurl }}/images/totalamountcheck.png">
+<img src="/KateS/images/totalamountcheck.png" alt="totalamountcheck" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 After validation, I confirmed that TotalAmount consists of:
 
@@ -90,6 +91,8 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="{{ site.baseurl }}/images/check_years_month_date.png">
 
+<img src="/KateS/images/check_years_month_date.png" alt="check_years_month_date" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 #### 1.C. Uniqueness of CustomerID
 
 While exploring the dataset, I identified a potential issue with the CustomerID column: it appeared not to be unique, despite being intended as a unique identifier. I subsequently performed an analysis to test this hypothesis.
@@ -103,6 +106,8 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
 
 <img src="{{ site.baseurl }}/images/unicness_customerid.png"> 
+
+<img src="/KateS/images/unicness_customerid.png" alt="unicness_customerid" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 The analysis confirms that this field is not unique.
 As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
@@ -128,6 +133,8 @@ WHERE product_count >= 2
 
 <img src="{{ site.baseurl }}/images/2plusproducts.png">
 
+<img src="/KateS/images/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
 
 
@@ -144,6 +151,8 @@ GROUP BY Category
 ORDER BY revenue DESC
 ```
 <img src="{{ site.baseurl }}/images/category_sales.png">
+
+<img src="/KateS/images/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
@@ -164,6 +173,8 @@ ORDER BY Category, year ASC
 We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
 <img src="{{ site.baseurl }}/images/revenue category year.png">
+
+<img src="/KateS/images/images/revenue category year.png" alt="revenue category year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 2.C. Revenue by state & year
 We could analyze the data by state across different years.
@@ -194,6 +205,8 @@ ORDER BY revenue DESC
 ```
 
 <img src="{{ site.baseurl }}/images/revenue_state.png">
+
+<img src="/KateS/images/images/revenue_state.png" alt="revenue_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
 However, such an analysis could generally help identify differences in purchase volumes over time and compare annual purchasing patterns across states.
@@ -230,7 +243,11 @@ ORDER BY month
 
 <img src="{{ site.baseurl }}/images/avg_order.png">
 
+<img src="/KateS/images/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
+
+<img src="/KateS/images/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
 
@@ -321,11 +338,13 @@ ORDER BY Category, year
 
 <img src="{{ site.baseurl }}/images/all metrics by year.png">
 
+<img src="/KateS/images/images/all metrics by year.png" alt="all metrics by year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
 
 <img src="{{ site.baseurl }}/images/all_metrics_by_month.png">
 
-<img src="/KateS/images/all_metrics_by_month.png" alt="monthly" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/all_metrics_by_month.png" alt="all_metrics_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 ### 3. Regional Analysis
 
@@ -350,6 +369,8 @@ WITH state_sales AS (
 ```
 
 <img src="{{ site.baseurl }}/images/Revenue_state_orders_units.png">
+
+<img src="/KateS/images/images/Revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
  One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
 
@@ -416,7 +437,7 @@ ORDER BY Revenue DESC
 
 <img src="{{ site.baseurl }}/images/discounts_state.png">
 
-
+<img src="/KateS/images/images/discounts_state.png" alt="discounts_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 3.C. Top categories by state 
 
@@ -468,6 +489,7 @@ ORDER BY Revenue DESC
 
 <img src="{{ site.baseurl }}/images/top_category_state.png">
 
+<img src="/KateS/images/images/top_category_state.png" alt="top_category_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 3.D. Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year
 
@@ -527,6 +549,7 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/state_year_revenue _discount_shipping.png">
 
+<img src="/KateS/images/images/state_year_revenue _discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
 
@@ -643,6 +666,8 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/overall_analitycs_products.png">
 
+<img src="/KateS/images/images/overall_analitycs_products.png" alt="overall_analitycs_products" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 #### 4.B. ABC-analysis
 
 Unfortunately  ABC-analysis is not relevant fot that dataset
@@ -718,6 +743,9 @@ ORDER BY revenue DESC
 </details>
 
 <img src="{{ site.baseurl }}/images/ABC.png">
+
+
+<img src="/KateS/images/images/ABC.png" alt="ABC" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Identify the products that contribute the most to total revenue and classify them into A, B, and C segments to support assortment optimization and inventory prioritization.
 
@@ -806,6 +834,7 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/products_discounts.png">
 
+<img src="/KateS/images/images/products_discounts.png" alt="products_discounts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 -------------------------------------------------------------------------------------------
 
 ### 4. одновременно мы можем посмотреть средний заказ по годам 
