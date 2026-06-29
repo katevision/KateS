@@ -165,7 +165,6 @@ ORDER BY Category, year ASC
 ```
 We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
 
-<img src="{{ site.baseurl }}/images/revenue_category_year.png">
 
 <img src="/KateS/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -199,7 +198,7 @@ ORDER BY revenue DESC
 
 <img src="{{ site.baseurl }}/images/revenue_state.png">
 
-<img src="/KateS/images/images/revenue_state.png" alt="revenue_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/revenue_state.png" alt="revenue_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
 However, such an analysis could generally help identify differences in purchase volumes over time and compare annual purchasing patterns across states.
