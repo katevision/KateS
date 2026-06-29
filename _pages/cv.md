@@ -89,3 +89,6 @@ Education
 
 **LANGUAGES**
 English, Russian, Ukrainian 
+
+
+<a href="/KateS/files/paper1.pdf" download style="display:inline-block; padding:10px 20px; background-color:#0066cc; color:white; border-radius:5px; text-decoration:none; font-weight:bold;">⬇ Скачать файл</a>
