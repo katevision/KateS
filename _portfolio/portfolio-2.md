@@ -360,8 +360,6 @@ WITH state_sales AS (
 )
 ```
 
-<img src="{{ site.baseurl }}/images/orders_units_revenue.png">
-
 
 <img src="/KateS/images/orders_units_revenue.png" alt="orders_units_revenue" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -824,7 +822,7 @@ ORDER BY
 
 <img src="{{ site.baseurl }}/images/products_discounts.png">
 
-<img src="/KateS/images/images/products_discounts.png" alt="products_discounts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/products_discounts.png" alt="products_discounts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
 -------------------------------------------------------------------------------------------
