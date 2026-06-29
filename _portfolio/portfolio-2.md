@@ -322,15 +322,14 @@ ORDER BY Category, year
 </details>
 
 
-<img src="{{ site.baseurl }}/images/all_metrics_year.png">
-
 <img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
 
-<img src="{{ site.baseurl }}/images/all_metrics_by_month.png">
 
 <img src="/KateS/images/all_metrics_by_month.png" alt="all_metrics_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 ### 3. Regional Analysis
 
@@ -356,7 +355,9 @@ WITH state_sales AS (
 
 <img src="{{ site.baseurl }}/images/Revenue_state_orders_units.png">
 
-<img src="/KateS/images/images/Revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+<img src="/KateS/images/Revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
  One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
 
