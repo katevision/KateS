@@ -476,7 +476,9 @@ ORDER BY Revenue DESC
 
 <img src="{{ site.baseurl }}/images/top_category_state.png">
 
-<img src="/KateS/images/images/top_category_state.png" alt="top_category_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+<img src="/KateS/images/top_category_state.png" alt="top_category_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 #### 3.D. Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year
 
@@ -534,9 +536,11 @@ ORDER BY
 ```
 </details>
 
-<img src="{{ site.baseurl }}/images/state_year_revenue _discount_shipping.png">
+<img src="{{ site.baseurl }}/images/state_year_revenue_discount_shipping.png">
 
-<img src="/KateS/images/images/state_year_revenue _discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+<img src="/KateS/images/state_year_revenue_discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
 
