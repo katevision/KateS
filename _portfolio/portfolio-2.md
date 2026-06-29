@@ -422,9 +422,9 @@ ORDER BY Revenue DESC
 </details>
 
 
-<img src="{{ site.baseurl }}/images/discounts_state.png">
 
-<img src="/KateS/images/images/discounts_state.png" alt="discounts_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/discounts_state.png" alt="discounts_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
 
 #### 3.C. Top categories by state 
 
