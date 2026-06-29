@@ -10,13 +10,18 @@ layout: single
   text-align: justify;
 }
 .toc {
-  float: none;
-  width: 100%;
-  margin: 0 0 1em 0;
+  position: static !important;
+  float: none !important;
+  width: auto !important;
 }
-.page__inner-wrap {
-  float: none;
-  width: 100%;
+nav.toc {
+  position: static !important;
+  float: none !important;
+  width: 100% !important;
+}
+.page__content {
+  width: 100% !important;
+  float: none !important;
 }
 </style>
 
