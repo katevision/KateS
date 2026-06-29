@@ -232,8 +232,6 @@ ORDER BY month
 
 <img src="/KateS/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
-<img src="{{ site.baseurl }}/images/avg_order_by_month.png">
-
 
 <img src="/KateS/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -324,9 +322,9 @@ ORDER BY Category, year
 </details>
 
 
-<img src="{{ site.baseurl }}/images/all metrics by year.png">
+<img src="{{ site.baseurl }}/images/all_metrics_year.png">
 
-<img src="/KateS/images/images/all metrics by year.png" alt="all metrics by year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
 
