@@ -13,7 +13,6 @@ toc_sticky: false
 }
 </style>
 
-{% include toc %}
 
 **Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
 
