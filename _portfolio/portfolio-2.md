@@ -127,8 +127,6 @@ FROM order_items
 WHERE product_count >= 2
 ```
 
-<img src="{{ site.baseurl }}/images/2plusproducts.png">
-
 <img src="/KateS/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
@@ -148,7 +146,7 @@ ORDER BY revenue DESC
 ```
 <img src="{{ site.baseurl }}/images/category_sales.png">
 
-<img src="/KateS/images/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
