@@ -820,7 +820,6 @@ ORDER BY
 ```
 </details>
 
-<img src="{{ site.baseurl }}/images/products_discounts.png">
 
 <img src="/KateS/images/products_discounts.png" alt="products_discounts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
