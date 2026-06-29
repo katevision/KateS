@@ -650,7 +650,6 @@ ORDER BY
 ```
 </details>
 
-<img src="{{ site.baseurl }}/images/overall_analitycs_products.png">
 
 <img src="/KateS/images/overall_analitycs_products.png" alt="overall_analitycs_products" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -727,8 +726,6 @@ FROM abc_base
 ORDER BY revenue DESC
 ```
 </details>
-
-<img src="{{ site.baseurl }}/images/abc.png">
 
 
 <img src="/KateS/images/abc.png" alt="abc" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
@@ -821,6 +818,8 @@ ORDER BY
 <img src="{{ site.baseurl }}/images/products_discounts.png">
 
 <img src="/KateS/images/images/products_discounts.png" alt="products_discounts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
 -------------------------------------------------------------------------------------------
 
 ### 4. одновременно мы можем посмотреть средний заказ по годам 
