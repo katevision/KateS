@@ -353,10 +353,10 @@ WITH state_sales AS (
 )
 ```
 
-<img src="{{ site.baseurl }}/images/Revenue_state_orders_units.png">
+<img src="{{ site.baseurl }}/images/revenue_state_orders_units.png">
 
 
-<img src="/KateS/images/Revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
  One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
@@ -474,9 +474,6 @@ ORDER BY Revenue DESC
 </details>
 
 
-<img src="{{ site.baseurl }}/images/top_category_state.png">
-
-
 <img src="/KateS/images/top_category_state.png" alt="top_category_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
@@ -535,8 +532,6 @@ ORDER BY
     year
 ```
 </details>
-
-<img src="{{ site.baseurl }}/images/state_year_revenue_discount_shipping.png">
 
 
 <img src="/KateS/images/state_year_revenue_discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
@@ -736,7 +731,7 @@ ORDER BY revenue DESC
 <img src="{{ site.baseurl }}/images/ABC.png">
 
 
-<img src="/KateS/images/images/ABC.png" alt="ABC" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/state_year_revenue_discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 Identify the products that contribute the most to total revenue and classify them into A, B, and C segments to support assortment optimization and inventory prioritization.
 
