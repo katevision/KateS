@@ -144,7 +144,6 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY Category
 ORDER BY revenue DESC
 ```
-<img src="{{ site.baseurl }}/images/category_sales.png">
 
 <img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -168,7 +167,7 @@ We look at revenue trends by year. We can also focus on specific periods and com
 
 <img src="{{ site.baseurl }}/images/revenue_category_year.png">
 
-<img src="/KateS/images/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 #### 2.C. Revenue by state & year
 We could analyze the data by state across different years.
