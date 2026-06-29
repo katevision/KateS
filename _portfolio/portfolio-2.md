@@ -9,22 +9,13 @@ layout: single
 .page__content p {
   text-align: justify;
 }
-.toc {
+.sidebar__right {
+  float: none !important;
   position: static !important;
-  float: none !important;
-  width: auto !important;
-}
-nav.toc {
-  position: static !important;
-  float: none !important;
   width: 100% !important;
-}
-.page__content {
-  width: 100% !important;
-  float: none !important;
+  margin: 0 0 1em 0 !important;
 }
 </style>
-
 
 {% include toc %}
 
