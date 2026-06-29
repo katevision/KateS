@@ -360,10 +360,10 @@ WITH state_sales AS (
 )
 ```
 
-<img src="{{ site.baseurl }}/images/revenue_state_orders_units.png">
+<img src="{{ site.baseurl }}/images/orders_units_revenue.png">
 
 
-<img src="/KateS/images/revenue_state_orders_units.png" alt="Revenue_state_orders_units" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+<img src="/KateS/images/orders_units_revenue.png" alt="orders_units_revenue" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
  One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
