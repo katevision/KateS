@@ -230,14 +230,12 @@ ORDER BY month
 ```
 
 
-
-<img src="{{ site.baseurl }}/images/avg_order.png">
-
 <img src="/KateS/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 <img src="{{ site.baseurl }}/images/avg_order_by_month.png">
 
-<img src="/KateS/images/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+<img src="/KateS/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
 
