@@ -15,6 +15,10 @@ layout: single
   width: 100% !important;
   margin: 0 0 1em 0 !important;
 }
+  .masthead__menu-item.selected a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
 </style>
 
 {% include toc %}
