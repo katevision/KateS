@@ -879,3 +879,15 @@ ORDER BY year
 <div id="lightbox" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
   <img id="lightbox-img" src="" onclick="event.stopPropagation()" style="max-width:90%; max-height:90vh; object-fit:contain;">
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href="https://katevision.github.io/KateS/portfolio/"]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = this.href;
+    });
+  });
+});
+</script>
