@@ -24,18 +24,11 @@ layout: single
 {% include toc %}
 
 
-**Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
-
-[Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
-
-SQL Analysis (Code) - link
-
-Amazon Sales Dashboard - Tableau - link
 
 ## Project overview
 
 **Business Scenario**
-This project simulates the work of a Business Analyst supporting an e-commerce company. Several business departments requested analyses to support operational and strategic decisions.
+This project simulates the work of a Business Analyst supporting an e-commerce company. Let's imagine that several business departments requested analyses to support operational and strategic decisions.
 
 **Objective**
 
@@ -45,8 +38,19 @@ This project simulates the work of a Business Analyst supporting an e-commerce c
 *recommend improvements for future decision-making.
 
 
+## Dataset overview
 
+**Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
 
+[Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
+
+SQL Analysis (Code) - link
+
+Amazon Sales Dashboard - Tableau - link
+
+Number of records: 100,000
+Data coverage: Jan 1, 2020 – Dec 29, 2024
+Source: Kaggle
 
 
 
