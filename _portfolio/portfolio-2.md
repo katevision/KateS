@@ -32,9 +32,23 @@ SQL Analysis (Code) - link
 
 Amazon Sales Dashboard - Tableau - link
 
-## Project objective
+## Project overview
 
-Comprehensive analysis of Amazon sales data to deliver strategic recommendations for business growth.
+**Business Scenario**
+This project simulates the work of a Business Analyst supporting an e-commerce company. Several business departments requested analyses to support operational and strategic decisions.
+
+**Objective**
+
+*validate data quality;
+*answer stakeholder business questions;
+*identify data limitations;
+*recommend improvements for future decision-making.
+
+
+
+
+
+
 
 **Key Focus Areas:**
 
