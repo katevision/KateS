@@ -32,10 +32,10 @@ This project simulates the work of a Business Analyst supporting an e-commerce c
 
 **Objective**
 
-*validate data quality;
-*answer stakeholder business questions;
-*identify data limitations;
-*recommend improvements for future decision-making.
+* validate data quality
+* answer stakeholder business questions
+* identify data limitations
+* recommend improvements for future decision-making
 
 
 ## Dataset overview
@@ -48,9 +48,9 @@ SQL Analysis (Code) - link
 
 Amazon Sales Dashboard - Tableau - link
 
-Number of records: 100,000
-Data coverage: Jan 1, 2020 – Dec 29, 2024
-Source: Kaggle
+* Number of records: 100,000
+* Data coverage: Jan 1, 2020 – Dec 29, 2024
+* Source: Kaggle
 
 
 
