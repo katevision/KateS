@@ -42,8 +42,6 @@ This project simulates the work of a Business Analyst supporting an e-commerce c
 
 **Tools Used:** Excel, MySQL, BigQuery (Google), Tableau
 
-[Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
-
 SQL Analysis (Code) - link
 
 Amazon Sales Dashboard - Tableau - link
@@ -51,24 +49,12 @@ Amazon Sales Dashboard - Tableau - link
 * Number of records: 100,000
 * Data coverage: Jan 1, 2020 – Dec 29, 2024
 * Source: Kaggle
+[Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
+* Key data fields:
+  ** OrderDate, ProductName, Category, Quantity, UnitPrice, Discount, Tax, ShippingCost, TotalAmount, OrderStatus, State, SellerID
 
 
-
-**Key Focus Areas:**
-
-**Market insights:** Identifying demand patterns and seasonality.
-
-**Financial performance:** Uncovering profitability drivers and cost inefficiencies.
-
-**Business impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
-
-## Approach
-
-To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
-
-##  Key questions answered in this project
-
-### 1. Some data validation
+## 1. Data Quality Assessment
 
 #### 1.A. Revenue
   
@@ -138,7 +124,7 @@ The analysis confirms that this field is not unique.
 As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
 Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
 
-#### 1.D. Orders with multiple products
+#### 1.D. Order structure
 
 Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
 
@@ -159,6 +145,25 @@ WHERE product_count >= 2
 <img src="/KateS/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
+
+
+
+
+**Key Focus Areas:**
+
+**Market insights:** Identifying demand patterns and seasonality.
+
+**Financial performance:** Uncovering profitability drivers and cost inefficiencies.
+
+**Business impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
+
+## Approach
+
+To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
+
+##  Key questions answered in this project
+
+
 
 
 ### 2.  Revenue Analysis
