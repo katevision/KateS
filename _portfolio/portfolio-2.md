@@ -56,7 +56,7 @@ Amazon Sales Dashboard - Tableau - link
 
 ## 1. Data Quality Assessment
 
-#### 1.A. Revenue
+### 1.A. Revenue
   
 Since our primary goal is to understand profitability, revenue, and operational efficiency, we first need to identify and validate the data available in the dataset.
 
@@ -94,7 +94,7 @@ Revenue = Unit Price × Quantity × (1 − Discount)
 
 **Unfortunately, due to the absence of cost of goods sold (COGS) and shipping cost data in the dataset, profit and profitability metrics cannot be reliably calculated.**
 
-#### 1.B. Timeframe validation
+### 1.B. Timeframe validation
 Determine the exact start/end dates, total years, and monthly duration of the dataset.
 This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
@@ -114,7 +114,7 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 <img src="/KateS/images/check_years_month_date.png" alt="check_years_month_date" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
-#### 1.C. Uniqueness of CustomerID
+### 1.C. Uniqueness of CustomerID
 
 While exploring the dataset, I identified a potential issue with the CustomerID column: it appeared not to be unique, despite being intended as a unique identifier. I subsequently performed an analysis to test this hypothesis.
 
@@ -135,7 +135,7 @@ The analysis confirms that this field is not unique.
 As a result, a traditional RFM analysis would not produce reliable or accurate insights based on the available data.
 Consequently, certain analyses cannot be performed reliably, as they depend on the availability of unique customer identifiers for accurate customer-level insights.
 
-#### 1.D. Order structure
+### 1.D. Order structure
 
 Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
 
@@ -162,7 +162,28 @@ WHERE product_count >= 2
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
 
+## Stakeholder requests
 
+Можно даже сделать красивую таблицу.
+
+## Business requests
+
+### Request 1 — Sales Department 
+
+**Business Need**
+
+**Analysis**
+SQL
+↓
+Visualization
+↓
+Краткое объяснение.
+
+**Recommendation**
+2–3 пункта.
+
+
+**Findings**
 
 
 **Key Focus Areas:**
