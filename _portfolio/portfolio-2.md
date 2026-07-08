@@ -62,6 +62,9 @@ Since our primary goal is to understand profitability, revenue, and operational 
 
 During the exploration process, I discovered a column called TotalAmount that lacked a clear description, so we verified what components were included in its calculation.
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
 ```sql
 SELECT 
   UnitPrice,
@@ -74,6 +77,7 @@ SELECT
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 LIMIT 10
 ```
+</details>
 
 <img src="/KateS/images/totalamountcheck.png" alt="totalamountcheck" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -94,6 +98,9 @@ Revenue = Unit Price × Quantity × (1 − Discount)
 Determine the exact start/end dates, total years, and monthly duration of the dataset.
 This information will help us determine which additional data cuts and dimensions can be explored, such as year-over-year, seasonal, and other analytical views.
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary> 
+  
 ```sql
 SELECT
   MIN (OrderDate) AS first_purchase_date,
@@ -103,6 +110,7 @@ SELECT
   ROUND (DATE_DIFF (MAX (OrderDate), MIN (OrderDate), DAY) / 30.4375, 2) AS accurate_months
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
+</details>
 
 <img src="/KateS/images/check_years_month_date.png" alt="check_years_month_date" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -110,13 +118,16 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 
 While exploring the dataset, I identified a potential issue with the CustomerID column: it appeared not to be unique, despite being intended as a unique identifier. I subsequently performed an analysis to test this hypothesis.
 
-
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary> 
+  
 ```sql
 SELECT
     COUNT(*) AS total_rows,
     COUNT(DISTINCT CustomerID) AS unique_customer_ids
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 ```
+</details>
 
 <img src="/KateS/images/unicness_customerid.png" alt="unicness_customerid" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -128,6 +139,9 @@ Consequently, certain analyses cannot be performed reliably, as they depend on t
 
 Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary> 
+  
 ```sql
 WITH order_items AS (
     SELECT
@@ -141,6 +155,8 @@ SELECT
 FROM order_items
 WHERE product_count >= 2
 ```
+
+</details>
 
 <img src="/KateS/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -247,6 +263,9 @@ However, such an analysis could generally help identify differences in purchase 
 
 например почему у нас нет скачка перед рождеством, днем матери, черной пятницей и так дале, значит наши клиенты несут деньги куда-то еще
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary> 
+  
 ```sql
 SELECT
  DATE_TRUNC (OrderDate, MONTH) AS month,
@@ -262,7 +281,7 @@ FROM (
 GROUP BY month
 ORDER BY month
 ```
-
+</details>
 
 <img src="/KateS/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
