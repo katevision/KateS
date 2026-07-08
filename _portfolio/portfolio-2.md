@@ -51,7 +51,7 @@ Amazon Sales Dashboard - Tableau - link
 * Source: Kaggle
 [Dataset Used](https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset) 
 * Key data fields:
-  ** OrderDate, ProductName, Category, Quantity, UnitPrice, Discount, Tax, ShippingCost, TotalAmount, OrderStatus, State, SellerID
+  * OrderDate, ProductName, Category, Quantity, UnitPrice, Discount, Tax, ShippingCost, TotalAmount, OrderStatus, State, SellerID
 
 
 ## 1. Data Quality Assessment
