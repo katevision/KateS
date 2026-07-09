@@ -242,19 +242,6 @@ Average Order Value
 
 
 
-**Key Focus Areas:**
-
-**Market insights:** Identifying demand patterns and seasonality.
-
-**Financial performance:** Uncovering profitability drivers and cost inefficiencies.
-
-**Business impact:** Providing actionable solutions to boost revenue, optimize product assortment, and streamline operations.
-
-## Approach
-
-To extract meaningful insights from the dataset, I used **SQL** and **Tableau** for data analysis and visualization. Visualizing the data helped identify key trends and factors influencing sales performance. The core of my process was asking targeted business questions and converting data insights into actionable strategic conclusions.
-
-##  Key questions answered in this project
 
 
 
