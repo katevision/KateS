@@ -171,22 +171,75 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ## Business requests
 
-### Request 1 — Sales Department 
+| Stakeholder | Business Question | Status |
+|:--------|:-------:|--------:|
+| Finance Manager   | Can TotalAmount be used as a reliable revenue metric?   | ✅ Answered   |
+|    | Can profitability be analyzed with the available data?   | ❌ Cannot answer (COGS is unavailable)   |
+|-----------------------------|
+| Business Intelligence Team   | Is the dataset suitable for business analysis?   | ✅ Answered   |
+|     | Can customer-level analysis (RFM, LTV, retention) be performed?   | ❌ Cannot answer (CustomerID is not unique)   |
+|     | Can basket and cross-sell analysis be performed?   | ❌ Cannot answer (all orders contain a single product)   |
+|-----------------------------|
+| Sales Manager  | Which product categories generate the most revenue?  | ✅ Answered   |
+|     | How has category performance changed over time?   | ✅ Answered   |
+|     | How do revenue, order volume, and Average Order Value change over time?  | ✅ Answered  |
+|-----------------------------|
+| Regional Sales Manager | Which states generate the highest revenue?  | ✅ Answered   |
+|     | Which product categories perform best in each state?   | ✅ Answered   |
+|     | How do regional sales change over time?  | ⚠️ Limited insight (sample dataset contains nearly identical yearly patterns) |
+|-----------------------------|
+| Marketing Manager | Are there meaningful seasonal changes in Average Order Value?  | ⚠️ Limited insight (dataset lacks realistic seasonality)  |
+|     | Which products are frequently purchased together?   | ❌ Cannot answer (single-product orders only)   |
+|-----------------------------|
+| Pricing Manager | Which states rely most heavily on discounts?  | ✅ Answered   |
+|     | Which products depend most on discounts?   | ✅ Answered   |
+|     | What is the financial impact of discounts on profitability? | ❌ Cannot answer (profit data is unavailable) |
+|-----------------------------|
+| Product / Category Manager | Which products generate the most revenue?  | ✅ Answered   |
+|     | Which products are growing or declining over time?  | ✅ Answered   |
+|     | Which products should be prioritized using ABC analysis? | ⚠️ Limited insight (synthetic data produces an unrealistic revenue distribution) |
+|-----------------------------|
+| Supply Chain Manager | How do shipping costs differ across states and years?  | ✅ Answered   |
+|-----------------------------|
+| Executive Team | Which categories, products, and regions contribute the most to revenue? | ✅ Answered   |
+|     | Which categories, products, and regions are the most profitable?  | ❌ Cannot answer (cost data is unavailable)  |
 
-**Business Need**
 
-**Analysis**
-SQL
-↓
-Visualization
-↓
-Краткое объяснение.
+### Stakeholder Request — Sales Department 
+
+**Business Questions**
+
+Which product categories generate the highest revenue?
+Which products contribute most to sales performance?
+How do revenue, order volume, and Average Order Value change over time?
+
+**Analysis Approach**
+
+Sales performance was evaluated using product, category, and time-based analysis.
+
+SQL was used to calculate:
+
+Revenue by category
+Product contribution to total revenue
+Year-over-year growth
+Order volume trends
+Average Order Value
+
+🔗 View SQL Queries
+
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+**Key Findings**
+
 
 **Recommendation**
+
 2–3 пункта.
 
 
-**Findings**
+
 
 
 **Key Focus Areas:**
