@@ -172,7 +172,7 @@ The dataset contains exclusively single-item orders, with no orders including mu
 ## Business requests
 
 | Stakeholder | Business Question | Analysis Outcome |
-|:--------|:-------:|--------:|
+|:--------|:-------|:--------|
 | **Finance Manager**   | Can TotalAmount be used as a reliable revenue metric?   | Validated — revenue calculation logic was confirmed  |
 |    | Can profitability be analyzed with the available data?   | Not available — COGS data is missing  |
 |-----------------------------|
