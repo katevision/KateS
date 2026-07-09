@@ -30,6 +30,9 @@ layout: single
 **Business Scenario**
 This project simulates the work of a Business Analyst supporting an e-commerce company. Let's imagine that several business departments requested analyses to support operational and strategic decisions.
 
+This project evaluated an e-commerce sales dataset to answer several business questions related to revenue, product performance, regional sales, and discounts.
+The analysis showed that while the dataset is technically consistent, its structure and limited variability prevent several meaningful business analyses. The project therefore focuses not only on findings but also on assessing data suitability for decision-making.
+
 **Objective**
 
 * validate data quality
