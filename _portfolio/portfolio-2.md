@@ -171,37 +171,37 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ## Business requests
 
-| Stakeholder | Business Question | Status |
+| Stakeholder | Business Question | Analysis Outcome |
 |:--------|:-------:|--------:|
-| Finance Manager   | Can TotalAmount be used as a reliable revenue metric?   | Validated — revenue calculation logic was confirmed  |
+| **Finance Manager**   | Can TotalAmount be used as a reliable revenue metric?   | Validated — revenue calculation logic was confirmed  |
 |    | Can profitability be analyzed with the available data?   | Not available — COGS data is missing  |
 |-----------------------------|
-| Business Intelligence Team   | Is the dataset suitable for business analysis?   | Completed — data structure and quality were assessed  |
+| **Business Intelligence Team**   | Is the dataset suitable for business analysis?   | Completed — data structure and quality were assessed  |
 |     | Can customer-level analysis (RFM, LTV, retention) be performed?   | Not available — CustomerID is not unique   |
 |     | Can basket and cross-sell analysis be performed?   | Not available — orders contain only a single product  |
 |-----------------------------|
-| Sales Manager  | Which product categories generate the most revenue?  | Completed — revenue contribution by category was analyzed  |
+| **Sales Manager**  | Which product categories generate the most revenue?  | Completed — revenue contribution by category was analyzed  |
 |     | How has category performance changed over time?   | Completed — yearly revenue trends were analyzed  |
 |     | How do revenue, order volume, and Average Order Value change over time?  | Completed — sales performance metrics were calculated |
 |-----------------------------|
-| Regional Sales Manager | Which states generate the highest revenue?  | Completed — regional sales contribution was analyzed  |
+| **Regional Sales Manager** | Which states generate the highest revenue?  | Completed — regional sales contribution was analyzed  |
 |     | Which product categories perform best in each state?   | Completed — category demand by state was identified  |
 |     | How do regional sales change over time?  | Limited insight — dataset shows minimal variation between years|
 |-----------------------------|
-| Marketing Manager | Are there meaningful seasonal changes in Average Order Value?  | Limited insight — dataset does not show realistic seasonal patterns  |
+| **Marketing Manager** | Are there meaningful seasonal changes in Average Order Value?  | Limited insight — dataset does not show realistic seasonal patterns  |
 |     | Which products are frequently purchased together?   | Not available — no multi-product orders exist in the dataset  |
 |-----------------------------|
-| Pricing Manager | Which states rely most heavily on discounts?  | Completed — discount usage by state was analyzed  |
+| **Pricing Manager** | Which states rely most heavily on discounts?  | Completed — discount usage by state was analyzed  |
 |     | Which products depend most on discounts?   | Completed — product-level discount dependency was identified  |
 |     | What is the financial impact of discounts on profitability? | Not available — profitability impact cannot be measured without cost data |
 |-----------------------------|
-| Product / Category Manager | Which products generate the most revenue?  | Completed — top revenue-generating products were identified  |
+| **Product / Category Manager** | Which products generate the most revenue?  | Completed — top revenue-generating products were identified  |
 |     | Which products are growing or declining over time?  | Completed — product growth trends were analyzed  |
 |     | Which products should be prioritized using ABC analysis? | Limited insight — dataset does not provide realistic product distribution |
 |-----------------------------|
-| Supply Chain Manager | How do shipping costs differ across states and years?  | Completed — shipping cost patterns were analyzed  |
+| **Supply Chain Manager** | How do shipping costs differ across states and years?  | Completed — shipping cost patterns were analyzed  |
 |-----------------------------|
-| Executive Team | Which categories, products, and regions contribute the most to revenue? | Completed — key revenue drivers were identified  |
+| **Executive Team** | Which categories, products, and regions contribute the most to revenue? | Completed — key revenue drivers were identified  |
 |     | Which categories, products, and regions are the most profitable?  | Not available — cost and margin data are missing  |
 
 
