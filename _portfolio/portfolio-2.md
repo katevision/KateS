@@ -165,9 +165,6 @@ WHERE product_count >= 2
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
 
-## Stakeholder requests
-
-Можно даже сделать красивую таблицу.
 
 ## Business requests
 
