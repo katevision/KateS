@@ -166,7 +166,7 @@ WHERE product_count >= 2
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
 
 
-## Business requests
+## 2. Business requests
 
 | Stakeholder | Business Question | Analysis Outcome |
 |:--------|:-------|:--------|
@@ -202,7 +202,7 @@ The dataset contains exclusively single-item orders, with no orders including mu
 |     | Which categories, products, and regions are the most profitable?  | Not available — cost and margin data are missing  |
 
 
-### Stakeholder Request — Sales Department 
+### 2.A. Stakeholder Request — Sales Department 
 
 **Business Questions**
 
@@ -236,11 +236,90 @@ Average Order Value
 2–3 пункта.
 
 
+### 2.B. Stakeholder Request — Regional Development
+
+**Business Questions**
+
+Which states underperform and where should expansion efforts focus?
+
+**Analysis Approach**
+
+...
+SQL was used to calculate:
 
 
 
 
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
 
+**Key Findings**
+
+
+**Recommendation**
+
+2–3 пункта.
+
+
+### 2.C. Stakeholder Request — Marketing
+
+**Business Questions**
+
+How are discounts related to sales performance?
+
+**Analysis Approach**
+
+...
+SQL was used to calculate:
+
+
+
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+**Key Findings**
+
+
+**Recommendation**
+
+2–3 пункта.
+
+
+
+### 2.D. Stakeholder Request — Executive Management
+
+**Business Questions**
+
+Can we evaluate customer loyalty?
+
+**Analysis Approach**
+
+...
+SQL was used to calculate:
+
+
+
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+**Key Findings**
+Answer
+No.
+
+Reason
+CustomerID is not reliable.
+
+Required data:
+Unique customer identifier
+Order history
+Customer lifetime
+
+
+**Recommendation**
+
+2–3 пункта.
 
 
 ### 2.  Revenue Analysis
