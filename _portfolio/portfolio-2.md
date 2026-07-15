@@ -204,10 +204,10 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ### 2.A. Stakeholder Request — Sales Department 
 
-**Business Questions**
+**Business Question**
 
-Which product categories generate the highest revenue?
-Which products contribute most to sales performance?
+#### 2.A.1. Which product categories generate the highest revenue?
+How has category performance changed over time?
 How do revenue, order volume, and Average Order Value change over time?
 
 **Analysis Approach**
@@ -224,15 +224,199 @@ Average Order Value
 
 🔗 View SQL Queries
 
+**Sales revenue  by product category**
+
+With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
+
+```sql
+SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+GROUP BY Category
+ORDER BY revenue DESC
+```
 
 **Dashboard & Visualization**
 [Tableau dashboard screenshots]
+
+<img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+**Key Findings**
+
+
+**Business Question**
+#### 2.A.2. How has category performance changed over time?
+
+
+**Analysis Approach**
+
+We can make  we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
+
+**Sales revenue by category & year**
+
+
+```sql
+SELECT 
+  EXTRACT (YEAR FROM OrderDate) AS year,
+  Category,
+  ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data` 
+GROUP BY year, Category
+ORDER BY Category, year ASC
+```
+We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
+
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+<img src="/KateS/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+**Key Findings**
+
+#### 2.A.3. How do revenue, order volume, and Average Order Value change over time?
+
+**Analysis Approach**
+
+**Monthly average order value trends**
+
+(не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
+ в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
+
+например почему у нас нет скачка перед рождеством, днем матери, черной пятницей и так дале, значит наши клиенты несут деньги куда-то еще
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary> 
+  
+```sql
+SELECT
+ DATE_TRUNC (OrderDate, MONTH) AS month,
+ ROUND (AVG (order_total), 2) AS avg_order_monthly
+FROM (
+ SELECT
+   OrderID,
+   OrderDate,
+   SUM (UnitPrice * Quantity * (1 - Discount)) AS order_total
+ FROM `project-sales-dataset.sales_dataset_a.general_data`
+ GROUP BY OrderID, OrderDate
+) temp_table
+GROUP BY month
+ORDER BY month
+```
+</details>
+
+<img src="/KateS/images/avg_order.png" alt="avg_order" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+<img src="/KateS/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+
+```sql
+SELECT
+  DATE_TRUNC(OrderDate, MONTH) AS month,
+  ROUND (SUM (CASE WHEN OrderStatus = 'Delivered' THEN TotalAmount ELSE 0 END) -
+  SUM(CASE WHEN OrderStatus = 'Returned'  THEN TotalAmount ELSE 0 END), 2) AS revenue,
+  COUNT(CASE WHEN OrderStatus = 'Delivered' THEN OrderID END) AS orders,
+  ROUND ((SUM(CASE WHEN OrderStatus = 'Delivered' THEN TotalAmount ELSE 0 END) -
+    SUM(CASE WHEN OrderStatus = 'Returned'  THEN TotalAmount ELSE 0 END)) / 
+    NULLIF(COUNT(CASE WHEN OrderStatus = 'Delivered' THEN OrderID END), 0), 2) AS aov
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE OrderStatus IN ('Delivered', 'Returned')
+GROUP BY 1
+ORDER BY 1
+```
+
+To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
+
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+
+```sql
+WITH yearly_metrics AS (
+    SELECT
+        EXTRACT(YEAR FROM OrderDate) AS year,
+        Category,
+
+        -- Revenue
+        ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue,
+
+        -- Orders
+        COUNT(DISTINCT OrderID) AS orders_count,
+
+        -- Average Order Value
+        ROUND (SUM (UnitPrice * Quantity * (1 - Discount))
+            / COUNT(DISTINCT OrderID), 2 ) AS avg_order_value
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+    GROUP BY 1, 2)
+
+SELECT
+    year,
+    Category,
+
+    revenue,
+
+    ROUND( 100 * (
+            revenue
+            - LAG(revenue) OVER (
+                PARTITION BY Category
+                ORDER BY year)
+        )
+        / NULLIF (LAG (revenue) OVER (PARTITION BY Category
+                ORDER BY year ), 0 ), 2) AS revenue_growth_pct,
+
+    orders_count,
+
+    ROUND( 100 * (
+            orders_count
+            - LAG(orders_count) OVER (
+                PARTITION BY Category
+                ORDER BY year))
+        / NULLIF(
+            LAG(orders_count) OVER (
+                PARTITION BY Category
+                ORDER BY year), 0), 2) AS orders_growth_pct,
+
+    avg_order_value,
+
+    ROUND(
+        100 * (avg_order_value
+            - LAG(avg_order_value) OVER (
+                PARTITION BY Category
+                ORDER BY year) )
+        / NULLIF(
+            LAG(avg_order_value) OVER (
+                PARTITION BY Category
+                ORDER BY year), 0), 2) AS aov_growth_pct
+
+FROM yearly_metrics
+ORDER BY Category, year
+```
+</details>
+
+
+<img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
+
+
+<img src="/KateS/images/all_metrics_by_month.png" alt="all_metrics_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+
+
+ **Dashboard & Visualization**
+[Tableau dashboard screenshots] 
+
+
 
 **Key Findings**
 
 
 **Recommendation**
-
+Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 2–3 пункта.
 
 
@@ -243,6 +427,7 @@ Average Order Value
 Which states underperform and where should expansion efforts focus?
 
 **Analysis Approach**
+
 
 ...
 SQL was used to calculate:
@@ -324,25 +509,22 @@ Customer lifetime
 
 ### 2.  Revenue Analysis
 
-#### 2.A. Sales revenue  by product category
 
+2.A. Sales revenue by product category
 With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
 
-```sql
 SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY Category
 ORDER BY revenue DESC
-```
-
-<img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+category_sales
 
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 
 
 #### 2.B. Sales revenue by category & year
 
-We can make  we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
+
 
 ```sql
 SELECT 
