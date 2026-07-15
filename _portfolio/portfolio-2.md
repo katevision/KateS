@@ -204,25 +204,11 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ### 2.A. Stakeholder Request — Sales Department 
 
-**Business Question**
-
+Business Question
 #### 2.A.1. Which product categories generate the highest revenue?
-How has category performance changed over time?
-How do revenue, order volume, and Average Order Value change over time?
+
 
 **Analysis Approach**
-
-Sales performance was evaluated using product, category, and time-based analysis.
-
-SQL was used to calculate:
-
-Revenue by category
-Product contribution to total revenue
-Year-over-year growth
-Order volume trends
-Average Order Value
-
-🔗 View SQL Queries
 
 **Sales revenue  by product category**
 
