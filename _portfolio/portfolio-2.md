@@ -406,23 +406,61 @@ Since the dataset contains sample data, the differences in revenue across catego
 2–3 пункта.
 
 
-### 2.B. Stakeholder Request — Regional Development
+### 2.B. Stakeholder Request — Regional Sales Manager
 
 **Business Questions**
 
+#### 2.B.1.  Revenue by state & year
+
 Which states underperform and where should expansion efforts focus?
+
+
+
+We could analyze the data by state across different years.
+
+Можно увидеть, какие штаты генерируют наибольший объем продаж, а какие дают небольшой вклад.
+Это помогает понять, где сосредоточена основная клиентская база.
+
+
+Если смотреть по годам, можно рассчитать темпы роста.
+Это может подсказать, куда направлять инвестиции, маркетинг или расширение команды.
+
+Можно обнаружить регионы с падением выручки. (конкуренты? изменились цены? проблемы с доставкой или поддержкой локально?)
+
+
+Если компания запускала инициативы в определенных регионах (новые магазины, рекламные кампании, склады), можно проверить результат.
+
+Revenue по штатам и годам.
+Growth Rate (% роста год к году).
+Долю региона в общей выручке (% Share).
+Количество заказов.
 
 **Analysis Approach**
 
+```sql
+SELECT State, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2)   AS revenue 
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE EXTRACT (YEAR FROM OrderDate) = 2020
+GROUP BY State
+ORDER BY revenue DESC
+```
 
-...
-SQL was used to calculate:
 
 
+в идеале было бы посмотреть, чтобы понять насколько есть профит (а не только выручка)
+Средний чек (AOV).
+Прибыль (Profit), а не только выручку.
+Выручку на одного клиента.
+но мы не можем
 
 
 **Dashboard & Visualization**
 [Tableau dashboard screenshots]
+
+<img src="/KateS/images/revenue_state.png" alt="revenue_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+Unfortunately, this would not provide additional insights in this case because the data is identical for each year. 
+However, such an analysis could generally help identify differences in purchase volumes over time and compare annual purchasing patterns across states.
 
 **Key Findings**
 
@@ -431,6 +469,236 @@ SQL was used to calculate:
 
 2–3 пункта.
 
+
+**Business Questions**
+
+#### 2.B.2.  Revenue by state
+
+
+Identify top-performing states and assess their contribution to overall revenue, based on the latest available 12 months of data.
+
+**Analysis Approach**
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH state_sales AS (
+  SELECT
+    State,
+    COUNT(DISTINCT OrderID) AS Orders,
+    SUM(Quantity) AS Units_Sold,
+    SUM(
+      UnitPrice * Quantity * (1 - COALESCE(Discount, 0))
+    ) AS Revenue
+  FROM `project-sales-dataset.sales_dataset_a.general_data`
+  WHERE OrderDate >= '2024-01-01'
+    AND OrderDate < '2025-01-01'
+  GROUP BY State
+)
+```
+</details>
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+<img src="/KateS/images/orders_units_revenue.png" alt="orders_units_revenue" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+ One important note: the dataset contains data for only 13 states, so the analysis reflects performance within this subset rather than across all U.S. states.
+
+ **Key Findings**
+
+
+**Recommendation**
+
+2–3 пункта.
+
+
+
+#### 2.B.3. Top categories by state 
+**Business Questions**
+This analysis helps identify key category demand drivers across states, reveal regional differences in customer preferences, support localized assortment and marketing strategies, and highlight potential over-reliance on a single category within a state.
+
+For a more detailed understanding of each region, we can also perform this analysis separately for each state.
+
+**Analysis Approach**
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH category_state AS (
+  SELECT
+    State,
+    Category,
+    SUM(UnitPrice * Quantity * (1 - COALESCE(Discount, 0))) AS Revenue,
+    SUM(Quantity) AS Units_Sold
+  FROM `project-sales-dataset.sales_dataset_a.general_data`
+  WHERE OrderDate >= '2024-01-01'
+    AND OrderDate < '2025-01-01'
+  GROUP BY State, Category
+),
+
+ranked AS (
+  SELECT
+    State,
+    Category,
+    Revenue,
+    Units_Sold,
+    RANK() OVER (
+      PARTITION BY State
+      ORDER BY Revenue DESC
+    ) AS rn
+  FROM category_state
+)
+
+SELECT
+  State,
+  Category,
+  ROUND(Revenue, 2) AS Revenue,
+  Units_Sold
+FROM ranked
+WHERE rn = 1
+ORDER BY Revenue DESC
+```
+</details>
+
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+<img src="/KateS/images/top_category_state.png" alt="top_category_state" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+ **Key Findings**
+
+
+**Recommendation**
+
+2–3 пункта.
+
+#### 2.B.4. Revenue, Discount & Shipping by State and Year
+**Business Questions**
+
+I analyzed Gross Sales, Discount Amount, Net Revenue, and Shipping Costs by state and year to evaluate the impact of discounting and logistics expenses on sales performance.
+
+
+**Analysis Approach**
+
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
+```sql
+WITH state_year_sales AS (
+    SELECT
+        EXTRACT(YEAR FROM OrderDate) AS year,
+        State AS state,
+
+        -- Sales before discounts
+        SUM(
+            UnitPrice * Quantity
+        ) AS gross_sales,
+
+        -- Discount amount in currency
+        SUM(
+            UnitPrice * Quantity * COALESCE(Discount, 0)
+        ) AS discount_amount,
+
+        -- Total shipping costs
+        SUM(
+            COALESCE(ShippingCost, 0)
+        ) AS shipping_cost
+
+    FROM `project-sales-dataset.sales_dataset_a.general_data`
+    GROUP BY
+        year,
+        state
+)
+
+SELECT
+    year,
+    state,
+
+    ROUND(gross_sales, 2) AS gross_sales,
+
+    ROUND(discount_amount, 2) AS discount_amount,
+
+    ROUND(
+        gross_sales - discount_amount,
+        2
+    ) AS revenue,
+
+    ROUND(shipping_cost, 2) AS shipping_cost
+
+FROM state_year_sales
+ORDER BY
+    state,
+    year
+```
+</details>
+
+**Dashboard & Visualization**
+[Tableau dashboard screenshots]
+
+<img src="/KateS/images/state_year_revenue_discount_shipping.png" alt="state_year_revenue _discount_shipping" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+более глубокое погружение в каждый штат и его аналитику - отдельной сложенной вкладкой
+
+**Key Findings**
+
+
+**Recommendation**
+
+2–3 пункта.
+
+
+### 2.C. Stakeholder Request — Business Intelligence Team
+
+Is the dataset suitable for business analysis?
+
+1.B Timeframe, 1.C CustomerID validation, 1.D Order structure
+
+что еще сделать: Data quality summary (процент NULL, дубликаты OrderID, распределение категорий, проверка выбросов
+
+------
+
+Can customer-level analysis (RFM, LTV, retention) be performed?
+
+1.C CustomerID uniqueness
+
+Невозможно без уникального CustomerID.
+
+-----------
+
+Can basket and cross-sell analysis be performed?
+
+
+1.D Order structure
+
+
+Невозможно без multi-product orders.
+
+
+
+Findings
+The dataset supports:
+Revenue analysis
+Product performance analysis
+Regional analysis
+Discount analysis
+However, several advanced analyses cannot be performed:
+Customer segmentation, RFM, and LTV analysis are not reliable because CustomerID is not unique.
+Cross-sell and basket analysis cannot be performed because all orders contain only one product.
+
+
+
+
+
+
+
+_______________________________________________________________________________
 
 ### 2.C. Stakeholder Request — Marketing
 
