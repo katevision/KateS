@@ -700,65 +700,7 @@ Cross-sell and basket analysis cannot be performed because all orders contain on
 
 _______________________________________________________________________________
 
-### 2.C. Stakeholder Request — Marketing
 
-**Business Questions**
-
-How are discounts related to sales performance?
-
-**Analysis Approach**
-
-...
-SQL was used to calculate:
-
-
-
-
-**Dashboard & Visualization**
-[Tableau dashboard screenshots]
-
-**Key Findings**
-
-
-**Recommendation**
-
-2–3 пункта.
-
-
-
-### 2.D. Stakeholder Request — Executive Management
-
-**Business Questions**
-
-Can we evaluate customer loyalty?
-
-**Analysis Approach**
-
-...
-SQL was used to calculate:
-
-
-
-
-**Dashboard & Visualization**
-[Tableau dashboard screenshots]
-
-**Key Findings**
-Answer
-No.
-
-Reason
-CustomerID is not reliable.
-
-Required data:
-Unique customer identifier
-Order history
-Customer lifetime
-
-
-**Recommendation**
-
-2–3 пункта.
 
 
 ### 2.  Revenue Analysis
