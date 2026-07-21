@@ -210,9 +210,9 @@ Business Question
 
 **Analysis Approach**
 
-**Sales revenue  by product category**
+Using the full five-year period covered by the dataset, we analyze revenue by product category to establish an overall view of category performance.
 
-With nearly five years of data available, we can now analyze revenue by category to obtain an overall view of sales performance
+Sales revenue  by product category.
 
 ```sql
 SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
@@ -227,18 +227,18 @@ ORDER BY revenue DESC
 <img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 **Key Findings**
+The analysis shows only minor differences in revenue across product categories over the five-year period. This level of uniformity is atypical for real commercial data and is likely a result of the dataset's synthetic nature. Consequently, the analysis validates the methodology but provides limited insight into category performance.
 
 
-**Business Question**
+Business Question
 #### 2.A.2. How has category performance changed over time?
 
 
 **Analysis Approach**
 
-We can make  we will analyze category sales by individual year to better understand how sales patterns have evolved over time. This will help us identify top-performing segments, spot trends, and support more informed business decisions.
+While a five-year revenue overview provides a high-level summary of category performance, an annual analysis may help reveal underlying trends and shifts in category performance over time. If required, the analysis can also be performed for other time periods, such as seasonal periods or specific promotional campaigns and sales events.
 
-**Sales revenue by category & year**
-
+Sales revenue by category & year.
 
 ```sql
 SELECT 
@@ -249,8 +249,6 @@ FROM `project-sales-dataset.sales_dataset_a.general_data`
 GROUP BY year, Category
 ORDER BY Category, year ASC
 ```
-We look at revenue trends by year. We can also focus on specific periods and compare the same periods across years.
-
 
 **Dashboard & Visualization**
 [Tableau dashboard screenshots]
@@ -258,6 +256,8 @@ We look at revenue trends by year. We can also focus on specific periods and com
 <img src="/KateS/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 **Key Findings**
+Similar to the five-year revenue overview, category revenue remains relatively consistent across all years, with only minor variations. As a result, the annual analysis provides limited additional business insight. The stable distribution suggests that the dataset does not capture meaningful shifts in category demand over time, making it difficult to identify emerging growth opportunities or declining product segments.
+
 
 #### 2.A.3. How do revenue, order volume, and Average Order Value change over time?
 
