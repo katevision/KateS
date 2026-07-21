@@ -235,6 +235,7 @@ Business Question
 
 
 **Analysis Approach**
+переделать, взять только заказы, которые не были возвращены (уже есть это в другом каком-то отчете дальше) 
 
 While a five-year revenue overview provides a high-level summary of category performance, an annual analysis may help reveal underlying trends and shifts in category performance over time. If required, the analysis can also be performed for other time periods, such as seasonal periods or specific promotional campaigns and sales events.
 
