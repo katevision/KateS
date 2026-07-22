@@ -240,6 +240,7 @@ ORDER BY revenue DESC
 <img src="/KateS/images/category_sales.png" alt="category_sales" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 **Key Findings**
+
 The analysis shows only minor differences in revenue across product categories over the five-year period. This level of uniformity is atypical for real commercial data and is likely a result of the dataset's synthetic nature. Consequently, the analysis validates the methodology but provides limited insight into category performance.
 
 
@@ -284,6 +285,7 @@ ORDER BY
 <img src="/KateS/images/revenue_category_year.png" alt="revenue_category_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 **Key Findings**
+
 Similar to the five-year revenue overview, category revenue remains relatively consistent across all years, with only minor variations. As a result, the annual analysis provides limited additional business insight. The stable distribution suggests that the dataset does not capture meaningful shifts in category demand over time, making it difficult to identify emerging growth opportunities or declining product segments.
 
 
