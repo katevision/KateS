@@ -206,7 +206,6 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 ### 2.A. Stakeholder Request — Sales Department 
 
-Business Question
 #### 2.A.1. Which product categories generate the highest revenue? How has category performance changed over time?
 
 
@@ -244,26 +243,40 @@ ORDER BY revenue DESC
 The analysis shows only minor differences in revenue across product categories over the five-year period. This level of uniformity is atypical for real commercial data and is likely a result of the dataset's synthetic nature. Consequently, the analysis validates the methodology but provides limited insight into category performance.
 
 
-Business Question
-#### 2.A.2. How has category performance changed over time?
-
+**How has category performance changed over time?**
 
 **Analysis Approach**
-переделать, взять только заказы, которые не были возвращены (уже есть это в другом каком-то отчете дальше) 
 
 While a five-year revenue overview provides a high-level summary of category performance, an annual analysis may help reveal underlying trends and shifts in category performance over time. If required, the analysis can also be performed for other time periods, such as seasonal periods or specific promotional campaigns and sales events.
 
 Sales revenue by category & year.
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
 ```sql
-SELECT 
-  EXTRACT (YEAR FROM OrderDate) AS year,
-  Category,
-  ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
-FROM `project-sales-dataset.sales_dataset_a.general_data` 
-GROUP BY year, Category
-ORDER BY Category, year ASC
+SELECT
+    EXTRACT(YEAR FROM OrderDate) AS year,
+    Category,
+    ROUND(
+        SUM(
+            UnitPrice
+            * Quantity
+            * (1 - COALESCE(Discount, 0))
+        ),
+        2
+    ) AS revenue
+FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE OrderStatus = 'Delivered'
+GROUP BY
+    year,
+    Category
+ORDER BY
+    Category,
+    year
 ```
+</details>
+
 
 **Dashboard & Visualization**
 [Tableau dashboard screenshots]
@@ -272,6 +285,9 @@ ORDER BY Category, year ASC
 
 **Key Findings**
 Similar to the five-year revenue overview, category revenue remains relatively consistent across all years, with only minor variations. As a result, the annual analysis provides limited additional business insight. The stable distribution suggests that the dataset does not capture meaningful shifts in category demand over time, making it difficult to identify emerging growth opportunities or declining product segments.
+
+
+If these were real business data, the absence of clear seasonal fluctuations would warrant further investigation. For example, I would expect to see increased sales around major retail events such as Christmas, Mother's Day, and Black Friday. The lack of such patterns would raise questions about where customers are choosing to spend their money during these periods and what actions the business could take to capture a larger share of that seasonal demand.
 
 
 #### 2.A.3. How do revenue, order volume, and Average Order Value change over time?
