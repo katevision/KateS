@@ -142,6 +142,8 @@ Consequently, certain analyses cannot be performed reliably, as they depend on t
 
 Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
 
+плюс проверяем названия статусов заказов и как построено хранение данных: у одного заказа разные статусы или один заказ равно один статус
+
 <details markdown="1">
   <summary> <strong>View SQL</strong> </summary> 
   
@@ -205,21 +207,33 @@ The dataset contains exclusively single-item orders, with no orders including mu
 ### 2.A. Stakeholder Request — Sales Department 
 
 Business Question
-#### 2.A.1. Which product categories generate the highest revenue?
+#### 2.A.1. Which product categories generate the highest revenue? How has category performance changed over time?
 
 
 **Analysis Approach**
 
-Using the full five-year period covered by the dataset, we analyze revenue by product category to establish an overall view of category performance.
+Using the full five-year period covered by the dataset, we analyze revenue by product category to establish an overall view of category performance. As cost data (COGS) is not available, revenue is calculated using the validated methodology described in Section 1.A: Revenue = Unit Price × Quantity × (1 − Discount). Revenue from delivered orders is aggregated by product category to measure each category's contribution to overall sales. Orders that were cancelled, returned, or are still pending are excluded from the analysis.
 
-Sales revenue  by product category.
-
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
+  
 ```sql
-SELECT  Category, ROUND (SUM (UnitPrice * Quantity * (1 - Discount)), 2) AS revenue
+SELECT
+    Category,
+    ROUND(
+        SUM(
+            UnitPrice
+            * Quantity
+            * (1 - COALESCE(Discount, 0))
+        ),
+        2
+    ) AS revenue
 FROM `project-sales-dataset.sales_dataset_a.general_data`
+WHERE OrderStatus = 'Delivered'
 GROUP BY Category
 ORDER BY revenue DESC
 ```
+</details>
 
 **Dashboard & Visualization**
 [Tableau dashboard screenshots]
