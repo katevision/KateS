@@ -290,16 +290,11 @@ Similar to the five-year revenue overview, category revenue remains relatively c
 If these were real business data, the absence of clear seasonal fluctuations would warrant further investigation. For example, I would expect to see increased sales around major retail events such as Christmas, Mother's Day, and Black Friday. The lack of such patterns would raise questions about where customers are choosing to spend their money during these periods and what actions the business could take to capture a larger share of that seasonal demand.
 
 
-#### 2.A.3. How do revenue, order volume, and Average Order Value change over time?
+#### 2.A.2. How do revenue, order volume, and Average Order Value change over time?
 
 **Analysis Approach**
 
-**Monthly average order value trends**
-
-(не клиента, а если бы были уникальный айди могли бы посмотреть средний чек по клиентам) 
- в нашем случае опять же чеки почти не отличаются, то есть отличаются незначительно, но допустим, что это значительные отличия, совместно с другой аналитикой, мы можем это использовать для принятия решений
-
-например почему у нас нет скачка перед рождеством, днем матери, черной пятницей и так дале, значит наши клиенты несут деньги куда-то еще
+This analysis evaluates monthly average order value (AOV) trends based on individual transactions. Since CustomerID is not unique, the analysis focuses on order-level AOV rather than customer-level spending behavior. All orders are included to provide an overall view of transaction value trends, without filtering by order status.
 
 <details markdown="1">
   <summary> <strong>View SQL</strong> </summary> 
@@ -327,6 +322,8 @@ ORDER BY month
 <img src="/KateS/images/avg_order_by_month.png" alt="avg_order_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
+<details markdown="1">
+  <summary> <strong>View SQL</strong> </summary>
 
 ```sql
 SELECT
@@ -342,6 +339,8 @@ WHERE OrderStatus IN ('Delivered', 'Returned')
 GROUP BY 1
 ORDER BY 1
 ```
+
+</details>
 
 To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
 
