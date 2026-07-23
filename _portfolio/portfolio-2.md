@@ -344,7 +344,8 @@ ORDER BY 1
 
 </details>
 
-To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates. This approach makes it possible to assess not only overall growth trends but also the factors driving those changes.
+To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates.
+Category performance is evaluated on an annual basis using three key metrics: revenue, order volume, and average order value (AOV). Year-over-year (YoY) growth rates are calculated for each metric to identify changes in sales performance and distinguish whether growth is driven by higher demand, increased transaction values, or both.
 
 
 <details markdown="1">
@@ -431,6 +432,9 @@ To gain a more detailed understanding of performance trends, I extended the anal
 
 
 **Key Findings**
+This analysis provides a comprehensive view of category performance over time, highlighting categories with sustained growth, declining performance, or stable demand. Comparing revenue, order volume, and AOV together helps identify the underlying drivers of sales trends and supports more informed decisions on pricing, product portfolio, and sales strategy.
+
+In this dataset, year-over-year variation is minimal, resulting in limited additional business insight. With real business data, the same analysis would help identify emerging growth opportunities, declining categories, and the key drivers of changes in sales performance.
 
 
 **Recommendation**
