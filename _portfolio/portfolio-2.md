@@ -348,6 +348,12 @@ To provide a more detailed view of category performance, I analyzed revenue, ord
 Category performance is evaluated on an annual basis using three key metrics: revenue, order volume, and average order value (AOV). Year-over-year (YoY) growth rates are calculated for each metric to identify changes in sales performance and distinguish whether growth is driven by higher demand, increased transaction values, or both.
 
 
+
+<img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
+
+
+To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
+
 <details markdown="1">
   <summary> <strong>View SQL</strong> </summary>
 
@@ -413,13 +419,6 @@ FROM yearly_metrics
 ORDER BY Category, year
 ```
 </details>
-
-
-<img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
-
-
-To gain a more detailed understanding of performance trends, I extended the analysis to the monthly level, examining the same metrics across individual months rather than annual periods.
-
 
 <img src="/KateS/images/all_metrics_by_month.png" alt="all_metrics_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
