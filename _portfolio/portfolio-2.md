@@ -209,6 +209,7 @@ The dataset contains exclusively single-item orders, with no orders including mu
 
 #### 2.A.1. Which product categories generate the highest revenue? How has category performance changed over time?
 
+**Which product categories generate the highest revenue?**
 
 **Analysis Approach**
 
