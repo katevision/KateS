@@ -28,6 +28,7 @@ layout: single
 ## Project overview
 
 **Business Scenario**
+
 This project simulates the work of a Business Analyst supporting an e-commerce company. Let's imagine that several business departments requested analyses to support operational and strategic decisions.
 
 This project evaluated an e-commerce sales dataset to answer several business questions related to revenue, product performance, regional sales, and discounts.
@@ -431,12 +432,14 @@ ORDER BY Category, year
 
 
 **Key Findings**
+
 This analysis provides a comprehensive view of category performance over time, highlighting categories with sustained growth, declining performance, or stable demand. Comparing revenue, order volume, and AOV together helps identify the underlying drivers of sales trends and supports more informed decisions on pricing, product portfolio, and sales strategy.
 
 In this dataset, year-over-year variation is minimal, resulting in limited additional business insight. With real business data, the same analysis would help identify emerging growth opportunities, declining categories, and the key drivers of changes in sales performance.
 
 
 **Recommendation**
+
 Since the dataset contains sample data, the differences in revenue across categories are relatively minor. Using real business data, we could determine which product category contributed the most to overall sales revenue.
 2–3 пункта.
 
