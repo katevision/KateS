@@ -346,10 +346,11 @@ ORDER BY 1
 
 </details>
 
-To provide a more detailed view of category performance, I analyzed revenue, order volume, and average order value by year, along with their year-over-year growth rates.
-Category performance is evaluated on an annual basis using three key metrics: revenue, order volume, and average order value (AOV). Year-over-year (YoY) growth rates are calculated for each metric to identify changes in sales performance and distinguish whether growth is driven by higher demand, increased transaction values, or both.
+This query analyzes year-over-year sales performance by product category using only Delivered orders to ensure that all metrics are based on completed sales.
 
+For each category and year, it calculates Revenue, Order Count, and Average Order Value (AOV). It also measures the year-over-year percentage growth for each KPI by comparing the current year's results with the previous year.
 
+The analysis helps identify performance trends across product categories and understand whether revenue growth is driven by higher order volumes or changes in customer spending.
 
 <img src="/KateS/images/all_metrics_year.png" alt="all_metrics_year" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
@@ -415,6 +416,10 @@ FROM yearly_metrics
 ORDER BY Category, year
 ```
 </details>
+
+
+This query analyzes the same key performance indicators: Revenue, Order Count, and Average Order Value (AOV), but at a monthly level instead of yearly. It provides a more detailed view of sales performance by tracking month-over-month changes for each product category, making it easier to identify short-term trends, seasonality, and shifts in customer purchasing behavior.
+
 
 <img src="/KateS/images/all_metrics_by_month.png" alt="all_metrics_by_month" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
