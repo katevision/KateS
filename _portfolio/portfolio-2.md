@@ -365,57 +365,51 @@ WITH yearly_metrics AS (
         EXTRACT(YEAR FROM OrderDate) AS year,
         Category,
 
-        -- Revenue
         ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS revenue,
-
-        -- Orders
         COUNT(DISTINCT OrderID) AS orders_count,
 
-        -- Average Order Value
-        ROUND (SUM (UnitPrice * Quantity * (1 - Discount))
-            / COUNT(DISTINCT OrderID), 2 ) AS avg_order_value
+        ROUND(
+            SUM(UnitPrice * Quantity * (1 - Discount))
+            / COUNT(DISTINCT OrderID),
+            2
+        ) AS avg_order_value
 
     FROM `project-sales-dataset.sales_dataset_a.general_data`
-    GROUP BY 1, 2)
+    WHERE OrderStatus = 'Delivered'
+    GROUP BY year, Category
+)
 
 SELECT
     year,
     Category,
-
     revenue,
 
-    ROUND( 100 * (
-            revenue
-            - LAG(revenue) OVER (
-                PARTITION BY Category
-                ORDER BY year)
-        )
-        / NULLIF (LAG (revenue) OVER (PARTITION BY Category
-                ORDER BY year ), 0 ), 2) AS revenue_growth_pct,
+    ROUND(
+        (revenue - LAG(revenue) OVER (PARTITION BY Category ORDER BY year)
+        ) * 100
+        / NULLIF(LAG(revenue) OVER (PARTITION BY Category ORDER BY year), 0),
+        2
+    ) AS revenue_growth_pct,
 
     orders_count,
 
-    ROUND( 100 * (
-            orders_count
-            - LAG(orders_count) OVER (
-                PARTITION BY Category
-                ORDER BY year))
+    ROUND(
+        (orders_count - LAG(orders_count) OVER (PARTITION BY Category ORDER BY year)
+        ) * 100
         / NULLIF(
-            LAG(orders_count) OVER (
-                PARTITION BY Category
-                ORDER BY year), 0), 2) AS orders_growth_pct,
+            LAG(orders_count) OVER (PARTITION BY Category ORDER BY year), 0),
+        2
+    ) AS orders_growth_pct,
 
     avg_order_value,
 
     ROUND(
-        100 * (avg_order_value
-            - LAG(avg_order_value) OVER (
-                PARTITION BY Category
-                ORDER BY year) )
+        (avg_order_value - LAG(avg_order_value) OVER (PARTITION BY Category ORDER BY year)
+        ) * 100
         / NULLIF(
-            LAG(avg_order_value) OVER (
-                PARTITION BY Category
-                ORDER BY year), 0), 2) AS aov_growth_pct
+            LAG(avg_order_value) OVER (PARTITION BY Category ORDER BY year), 0),
+        2
+    ) AS aov_growth_pct
 
 FROM yearly_metrics
 ORDER BY Category, year
