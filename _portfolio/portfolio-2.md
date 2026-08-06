@@ -143,7 +143,7 @@ Consequently, certain analyses cannot be performed reliably, as they depend on t
 
 ### 1.D. Order structure
 
-Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess how many orders contain two or more products.
+Another limitation of the dataset is the composition of order contents. Cross-sell analysis would ideally require examining which products are purchased together and how these patterns vary by season. To determine whether such analysis is feasible, I will first assess **how many orders contain two or more products**.
 
 плюс проверяем названия статусов заказов и как построено хранение данных: у одного заказа разные статусы или один заказ равно один статус
 
@@ -169,6 +169,11 @@ WHERE product_count >= 2
 <img src="/KateS/images/2plusproducts.png" alt="2plusproducts" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 The dataset contains exclusively single-item orders, with no orders including multiple products. This significantly constrains the analytical opportunities, as use cases such as product affinity analysis, cross-sell identification, and basket composition analysis cannot be reliably performed.
+
+
+For the analysis, we'll need a clear understanding of **the available order statuses**. Let's identify them first.
+
+
 
 
 ## 2. Business requests
