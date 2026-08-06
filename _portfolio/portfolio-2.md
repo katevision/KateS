@@ -83,6 +83,8 @@ LIMIT 10
 ```
 </details>
 
+As we can see, the column we calculated (item price multiplied by quantity, with any applicable discount applied, plus shipping costs and taxes), which we named calc_base_ship_tax, matches the TotalAmount column in the dataset. This confirms that our understanding of the components included in TotalAmount is correct.
+
 <img src="/KateS/images/totalamountcheck.png" alt="totalamountcheck" style="cursor:pointer;" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').style.display='flex';">
 
 
